@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta charset="utf-8">
+    
+    <title>评论系统 | ColtBlog</title>
+    
+    
+        <meta name="keywords" content="CS沉思" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="现在为博客添加评论 Next主题 这里使用valine，基于leancloud，比较稳定。 在leancloud创建账户并创建开发板。在存储中创建名为Comment、Counter的两个Class，权限为所有用户可以访问。 在设置 安全中心中将服务开关除数据存储外全部关闭，Web安全域名中添加自己的域名。  在设置 应用Keys中找到appid与appkey并复制 在主题的_config.yml文">
+<meta property="og:type" content="article">
+<meta property="og:title" content="评论系统">
+<meta property="og:url" content="http://c0lt.com/2020/04/25/3/index.html">
+<meta property="og:site_name" content="ColtBlog">
+<meta property="og:description" content="现在为博客添加评论 Next主题 这里使用valine，基于leancloud，比较稳定。 在leancloud创建账户并创建开发板。在存储中创建名为Comment、Counter的两个Class，权限为所有用户可以访问。 在设置 安全中心中将服务开关除数据存储外全部关闭，Web安全域名中添加自己的域名。  在设置 应用Keys中找到appid与appkey并复制 在主题的_config.yml文">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s1.ax1x.com/2020/04/25/Jsm9IA.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/04/25/JsniTJ.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/04/25/JsngXT.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/04/25/Jsn4AJ.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/04/25/Jsnz4A.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/04/25/JsuZNj.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/04/25/JsusVe.png">
+<meta property="article:published_time" content="2020-04-25T02:43:31.000Z">
+<meta property="article:modified_time" content="2020-07-29T03:46:22.096Z">
+<meta property="article:author" content="Colt">
+<meta property="article:tag" content="CS沉思">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/04/25/Jsm9IA.png">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="ColtBlog" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/open-sans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    
+<script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?8e0e4282a5c6c522cd8c8e76a861d705";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">ColtBlog</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-3" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/CS%E6%B2%89%E6%80%9D/" rel="tag">CS沉思</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2020/04/25/3/">
+            <time datetime="2020-04-25T02:43:31.000Z" itemprop="datePublished">2020-04-25</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            评论系统
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+        
+        
+            <p><strong>现在为博客添加评论</strong></p>
+<p>Next主题</p>
+<p>这里使用valine，基于leancloud，比较稳定。</p>
+<p>在<a href="https://leancloud.cn/" target="_blank" rel="noopener">leancloud</a>创建账户并创建开发板。在存储中创建名为Comment、Counter的两个Class，权限为所有用户可以访问。<img src="https://s1.ax1x.com/2020/04/25/Jsm9IA.png" alt="valine"></p>
+<p>在设置 安全中心中将服务开关除数据存储外全部关闭，Web安全域名中添加自己的域名。</p>
+<p><img src="https://s1.ax1x.com/2020/04/25/JsniTJ.png" alt="安全"></p>
+<p>在设置 应用Keys中找到appid与appkey并复制</p>
+<p>在主题的_config.yml文件中找到valine（612行）粘贴自己的appid与appkey。</p>
+<p><strong>注意将enable设置为true。</strong></p>
+<p><img src="https://s1.ax1x.com/2020/04/25/JsngXT.png" alt="配置"></p>
+<p>接下来更换valine CDN</p>
+<p>在<a href="https://www.jsdelivr.com/package/npm/valine" target="_blank" rel="noopener">jsdelivr</a>中找到最新CDN copy URL</p>
+<p><img src="https://s1.ax1x.com/2020/04/25/Jsn4AJ.png" alt="cdn"></p>
+<p>在主题_config.yml文件中找到valine CDN（945行）粘贴</p>
+<p><img src="https://s1.ax1x.com/2020/04/25/Jsnz4A.png" alt="cdn1"></p>
+<p>保存 git后出现评论 test成功</p>
+<p><img src="https://s1.ax1x.com/2020/04/25/JsuZNj.png" alt="实现"></p>
+<p>评论后leancloud中会在Comment中生成数据，可以进行管理。</p>
+<p><img src="https://s1.ax1x.com/2020/04/25/JsusVe.png" alt="管理"></p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/2020/04/29/4/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    Git
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2020/04/24/2/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">更换DNS解析与CDN</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+        <section id="comments"> 
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+ </section>
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            Colt &copy; 2020 
+            <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten" target="_blank" rel="noopener">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_config = function () {
+        
+            this.page.url = 'http://c0lt.com/2020/04/25/3/';
+        
+        this.page.identifier = '3';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'coltblog' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+    </div>
+</body>
+</html>
