@@ -11,6 +11,29 @@
       </tags>
   </entry>
   <entry>
+    <title>更换DNS解析与CDN</title>
+    <url>/2020/04/24/2/</url>
+    <content><![CDATA[<p><strong>注册域名时使用了阿里云的DNS解析，现更换CloudFlare DNS并使用CDN。</strong></p>
+<ol>
+<li><p>将原DNS dns21.hichina.com dns22.hichina.com更换为harlee.ns.cloudflare.com weston.ns.cloudflare.com。</p>
+</li>
+<li><p>停止阿里云解析，开启CloudFlare，勾选CDN。</p>
+</li>
+<li><p>开启Under Attack 模式，打开网页后出现五秒盾。</p>
+</li>
+<li><p>进行SSL设置</p>
+</li>
+</ol>
+<p>现在网站已有SSL证书，并由CloudFlare保护防止DDoS ，管不管用就不知道了。</p>
+<p><em>找到一个不错的图床，名为路过图床。</em></p>
+<p><img src="https://s1.ax1x.com/2020/04/24/JDe0vF.png" alt="证书"></p>
+<p>最初我不想折腾CDN和SSL，但当我突然意识到colt.com是什么网站后，想想还是加上吧。</p>
+]]></content>
+      <tags>
+        <tag>CS沉思</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>评论系统</title>
     <url>/2020/04/25/3/</url>
     <content><![CDATA[<p><strong>现在为博客添加评论</strong></p>
@@ -32,29 +55,6 @@
 <p><img src="https://s1.ax1x.com/2020/04/25/JsuZNj.png" alt="实现"></p>
 <p>评论后leancloud中会在Comment中生成数据，可以进行管理。</p>
 <p><img src="https://s1.ax1x.com/2020/04/25/JsusVe.png" alt="管理"></p>
-]]></content>
-      <tags>
-        <tag>CS沉思</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>更换DNS解析与CDN</title>
-    <url>/2020/04/24/2/</url>
-    <content><![CDATA[<p><strong>注册域名时使用了阿里云的DNS解析，现更换CloudFlare DNS并使用CDN。</strong></p>
-<ol>
-<li><p>将原DNS dns21.hichina.com dns22.hichina.com更换为harlee.ns.cloudflare.com weston.ns.cloudflare.com。</p>
-</li>
-<li><p>停止阿里云解析，开启CloudFlare，勾选CDN。</p>
-</li>
-<li><p>开启Under Attack 模式，打开网页后出现五秒盾。</p>
-</li>
-<li><p>进行SSL设置</p>
-</li>
-</ol>
-<p>现在网站已有SSL证书，并由CloudFlare保护防止DDoS ，管不管用就不知道了。</p>
-<p><em>找到一个不错的图床，名为路过图床。</em></p>
-<p><img src="https://s1.ax1x.com/2020/04/24/JDe0vF.png" alt="证书"></p>
-<p>最初我不想折腾CDN和SSL，但当我突然意识到colt.com是什么网站后，想想还是加上吧。</p>
 ]]></content>
       <tags>
         <tag>CS沉思</tag>
