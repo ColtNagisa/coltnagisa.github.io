@@ -1,283 +1,54 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-<!-- Google Analytics -->
-<script type="text/javascript">
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+extends base
 
-ga('create', 'UA-170468138-1', 'auto');
-ga('send', 'pageview');
+block title
+  title= page.title + ' | ' + config.title
 
-</script>
-<!-- End Google Analytics -->
+block content
+  .post
+    h1.post-title= page.title
+    .post-meta= page.date.format(config.date_format)
+      if page.categories.length > 0
+        span= ' | '
+        span.category
+          for category in page.categories.toArray()
+            a(href=url_for(category.path))= category.name
+      if theme.busuanzi == true
+        script(src='https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js', async)
+        span#busuanzi_container_page_pv= ' | '
+          span#busuanzi_value_page_pv
+          span= ' ' + __('Hits')
+      if theme.wordcount == true
+        include _partial/wordcount.pug
+    if theme.disqus
+      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
+    if theme.changyan
+      a.ds-thread-count(href=url_for(page.path) + '#SOHUCS')
+        span#changyan_count_unit(style='font-size: 15px; color: #6E7173;') 0
+        span= ' ' + __('Comment')
+      script(src='https://assets.changyan.sohu.com/upload/plugins/plugins.count.js', async)
+    if theme.valine.enable
+      a.disqus-comment-count( href=url_for(page.path) + '#vcomment')
+        span.valine-comment-count(data-xid=url_for(page.path))
+        span= ' ' + __('Comment')
+    if page.toc
+      div(class='clear')
+        div(id='toc' class='toc-article')
+          div(class='toc-title')= __('contents')
+          != toc(page.content, {list_number: theme.toc_number})
+    .post-content
+      != page.content
+    if theme.donate.enable == true && page.donate != false
+      include _widget/donate.pug
 
+    if theme.post_copyright.enable == true && page.copyright != false
+      include _widget/copyright.pug
 
-  
-  <title>树莓派clash | ColtBlog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Clash在树莓派上的实现树莓派吃灰已久，原来做过小型服务器和下载机。这次尝试在树莓派上部署Clash。 下载clash创建clash目录 1sudo mkdir clash  在clash目录中下载 1sudo wget https:&#x2F;&#x2F;github.com&#x2F;Dreamacro&#x2F;clash&#x2F;releases&#x2F;download&#x2F;">
-<meta property="og:type" content="article">
-<meta property="og:title" content="树莓派clash">
-<meta property="og:url" content="http://c0lt.com/2020/05/23/6/index.html">
-<meta property="og:site_name" content="ColtBlog">
-<meta property="og:description" content="Clash在树莓派上的实现树莓派吃灰已久，原来做过小型服务器和下载机。这次尝试在树莓派上部署Clash。 下载clash创建clash目录 1sudo mkdir clash  在clash目录中下载 1sudo wget https:&#x2F;&#x2F;github.com&#x2F;Dreamacro&#x2F;clash&#x2F;releases&#x2F;download&#x2F;">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/05/23/YxnwHx.png">
-<meta property="og:image" content="https://s1.ax1x.com/2020/05/23/YxnRKA.png">
-<meta property="article:published_time" content="2020-05-23T12:41:05.000Z">
-<meta property="article:modified_time" content="2020-07-29T03:46:54.026Z">
-<meta property="article:author" content="Colt">
-<meta property="article:tag" content="CS沉思">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/05/23/YxnwHx.png">
-<meta name="twitter:creator" content="@ColtNagisa">
-  
-    <link rel="alternate" href="/about" title="ColtBlog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+    if theme.shareto == true
+      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
+      a.article-share-link(data-url=page.permalink, data-id=page._id, data-qrcode=qrcode(page.permalink))= __('shareto')
 
-<meta name="generator" content="Hexo 4.2.1"></head>
+    include _partial/tag.pug
+    include _partial/post_nav.pug
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">ColtBlog</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">Colt的个人站 (coltchn@gmail.com)</a>
-        </h2>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-          <a class="main-nav-link" href="/about">About</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/about" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://c0lt.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-6" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/05/23/6/" class="article-date">
-  <time datetime="2020-05-23T12:41:05.000Z" itemprop="datePublished">2020-05-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      树莓派clash
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Clash在树莓派上的实现"><a href="#Clash在树莓派上的实现" class="headerlink" title="Clash在树莓派上的实现"></a>Clash在树莓派上的实现</h1><p>树莓派吃灰已久，原来做过小型服务器和下载机。这次尝试在树莓派上部署Clash。</p>
-<h2 id="下载clash"><a href="#下载clash" class="headerlink" title="下载clash"></a>下载clash</h2><p>创建clash目录</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir clash</span><br></pre></td></tr></table></figure>
-
-<p>在clash目录中下载</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo wget https:&#x2F;&#x2F;github.com&#x2F;Dreamacro&#x2F;clash&#x2F;releases&#x2F;download&#x2F;v0.16.0&#x2F;clash-linux-armv7-v0.16.0.gz</span><br></pre></td></tr></table></figure>
-
-<p><em>注意是arm版本</em></p>
-<p><img src="https://s1.ax1x.com/2020/05/23/YxnwHx.png" alt="clash1"></p>
-<p>解压并重命名</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xzf clash-linux-armv8.tar.gz -O &gt; clash</span><br></pre></td></tr></table></figure>
-
-<p>赋予权限</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x clash</span><br></pre></td></tr></table></figure>
-
-<h2 id="配置clash"><a href="#配置clash" class="headerlink" title="配置clash"></a>配置clash</h2><p>这时候会在/home/pi/.config/clash中生成config.yaml的文件。</p>
-<p>Country.mmdb为全球IP库，可以实现各个国家的IP信息解析和地理定位，没有这个文件clash是无法运行的。但是现在的发行版好像有一个bug，就是无法自动生成这个IP库文件，并且终端中提供的网址也无法下载。可在网上找到Country.mmdb。</p>
-<p>将Country.mmdb拷贝到clash目录下。</p>
-<p>在第一次运行clash时，config文件为空。可购买机场，下载clash文件。</p>
-<p>在<a href="https://duangcloud.org/" target="_blank" rel="noopener">Duangcloud</a>中购买机场，最低19一月60g流量。</p>
-<p><img src="https://s1.ax1x.com/2020/05/23/YxnRKA.png" alt="clash2"></p>
-<p>将config.yml文件放至clash目录下，完成。</p>
-<p>也可以在使用 <a href="http://clash.razord.top" target="_blank" rel="noopener">http://clash.razord.top</a>  控制面板切换节点和模式。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://c0lt.com/2020/05/23/6/" data-id="ckd8havye0009r4vt8nd71q3n" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CS%E6%B2%89%E6%80%9D/" rel="tag">CS沉思</a></li></ul>
-
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2020/06/24/7/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          念奴娇·郑铁一中
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2020/05/12/5/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">存在的意义</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CS%E6%B2%89%E6%80%9D/" rel="tag">CS沉思</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E8%A8%80%E8%87%AA%E8%AF%AD/" rel="tag">自言自语</a><span class="tag-list-count">4</span></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/CS%E6%B2%89%E6%80%9D/" style="font-size: 10px;">CS沉思</a> <a href="/tags/%E8%87%AA%E8%A8%80%E8%87%AA%E8%AF%AD/" style="font-size: 10px;">自言自语</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">4</span></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2020/07/28/8/">新电脑</a>
-          </li>
-        
-          <li>
-            <a href="/2020/06/24/7/">念奴娇·郑铁一中</a>
-          </li>
-        
-          <li>
-            <a href="/2020/05/23/6/">树莓派clash</a>
-          </li>
-        
-          <li>
-            <a href="/2020/05/12/5/">存在的意义</a>
-          </li>
-        
-          <li>
-            <a href="/2020/04/29/4/">Git</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2020 Colt<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-    <a href="/about" class="mobile-nav-link">About</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-  </div>
-</body>
-</html>
+    if page.comments
+      include _partial/comments.pug

@@ -1,255 +1,54 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-<!-- Google Analytics -->
-<script type="text/javascript">
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+extends base
 
-ga('create', 'UA-170468138-1', 'auto');
-ga('send', 'pageview');
+block title
+  title= page.title + ' | ' + config.title
 
-</script>
-<!-- End Google Analytics -->
+block content
+  .post
+    h1.post-title= page.title
+    .post-meta= page.date.format(config.date_format)
+      if page.categories.length > 0
+        span= ' | '
+        span.category
+          for category in page.categories.toArray()
+            a(href=url_for(category.path))= category.name
+      if theme.busuanzi == true
+        script(src='https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js', async)
+        span#busuanzi_container_page_pv= ' | '
+          span#busuanzi_value_page_pv
+          span= ' ' + __('Hits')
+      if theme.wordcount == true
+        include _partial/wordcount.pug
+    if theme.disqus
+      a.disqus-comment-count(data-disqus-identifier=page.path, href=url_for(page.path) + '#disqus_thread')
+    if theme.changyan
+      a.ds-thread-count(href=url_for(page.path) + '#SOHUCS')
+        span#changyan_count_unit(style='font-size: 15px; color: #6E7173;') 0
+        span= ' ' + __('Comment')
+      script(src='https://assets.changyan.sohu.com/upload/plugins/plugins.count.js', async)
+    if theme.valine.enable
+      a.disqus-comment-count( href=url_for(page.path) + '#vcomment')
+        span.valine-comment-count(data-xid=url_for(page.path))
+        span= ' ' + __('Comment')
+    if page.toc
+      div(class='clear')
+        div(id='toc' class='toc-article')
+          div(class='toc-title')= __('contents')
+          != toc(page.content, {list_number: theme.toc_number})
+    .post-content
+      != page.content
+    if theme.donate.enable == true && page.donate != false
+      include _widget/donate.pug
 
+    if theme.post_copyright.enable == true && page.copyright != false
+      include _widget/copyright.pug
 
-  
-  <title>新电脑 | ColtBlog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一周前在推特上看见了一台二手的Surface Laptop，下定决心要换电脑。左思右想没有买那台Surface而是定了新出不久的小新Air14，这也是我时隔七年再次用上AMD的CPU。十几年前我的旧台式机用的是AMD四核速龙，14年买的联想Y410P和15年买的Macmini都是四代i5，当时的我绝对不会想到七年后我会再次用上AMD。Y410P是我平时最常用的。上高中时，我给它加了8G内存">
-<meta property="og:type" content="article">
-<meta property="og:title" content="新电脑">
-<meta property="og:url" content="http://c0lt.com/2020/07/28/8/index.html">
-<meta property="og:site_name" content="ColtBlog">
-<meta property="og:description" content="一周前在推特上看见了一台二手的Surface Laptop，下定决心要换电脑。左思右想没有买那台Surface而是定了新出不久的小新Air14，这也是我时隔七年再次用上AMD的CPU。十几年前我的旧台式机用的是AMD四核速龙，14年买的联想Y410P和15年买的Macmini都是四代i5，当时的我绝对不会想到七年后我会再次用上AMD。Y410P是我平时最常用的。上高中时，我给它加了8G内存">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s1.ax1x.com/2020/07/28/aEvk24.png">
-<meta property="og:image" content="https://s1.ax1x.com/2020/07/28/aEvAxJ.png">
-<meta property="article:published_time" content="2020-07-28T12:31:53.000Z">
-<meta property="article:modified_time" content="2020-07-28T13:40:26.423Z">
-<meta property="article:author" content="Colt">
-<meta property="article:tag" content="自言自语">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/07/28/aEvk24.png">
-<meta name="twitter:creator" content="@ColtNagisa">
-  
-    <link rel="alternate" href="/about" title="ColtBlog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+    if theme.shareto == true
+      script(type='text/javascript', src=url_for(theme.js) + '/share.js' + '?v=' + theme.version, async)
+      a.article-share-link(data-url=page.permalink, data-id=page._id, data-qrcode=qrcode(page.permalink))= __('shareto')
 
-<meta name="generator" content="Hexo 4.2.1"></head>
+    include _partial/tag.pug
+    include _partial/post_nav.pug
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">ColtBlog</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">Colt的个人站 (coltchn@gmail.com)</a>
-        </h2>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-          <a class="main-nav-link" href="/about">About</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/about" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://c0lt.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-8" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/07/28/8/" class="article-date">
-  <time datetime="2020-07-28T12:31:53.000Z" itemprop="datePublished">2020-07-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      新电脑
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>   一周前在推特上看见了一台二手的Surface Laptop，下定决心要换电脑。左思右想没有买那台Surface而是定了新出不久的小新Air14，这也是我时隔七年再次用上AMD的CPU。十几年前我的旧台式机用的是AMD四核速龙，14年买的联想Y410P和15年买的Macmini都是四代i5，当时的我绝对不会想到七年后我会再次用上AMD。Y410P是我平时最常用的。上高中时，我给它加了8G内存 换了480G的SSD。上了大学，换了电池 屏幕 网卡。其实是可以坚持四年的，但2.5千克的重量和1366*768 45%NTSC色域 低频PWM调光的屏幕实在让我恶心。Mac在家里除了用Xcode还真没怎么用。今年初下单了MBP13 2019。刚下单不久就刷到了2020的消息，Apple Store的店员还向我保证13寸近期不会更新。取消订单，等2020款。还好没有买Mbp，省下钱可以预定几个手办了。</p>
-<p>   小新Air14搭载AMD锐龙4600U，六核十二线程。比我原来的i5 4200M要好太多。没有独显，1920*1080 100%sRGB色域 DC调光，16G板载双通道DDR4 3200MHz内存，512G nvme TLC 三星pm981a SSD。其实还有西数黑盘SN730版，比较庆幸拿到三星的。<br><img src="https://s1.ax1x.com/2020/07/28/aEvk24.png" alt="cpu" style="zoom: 50%;" /><img src="https://s1.ax1x.com/2020/07/28/aEvAxJ.png" alt="cpu2" style="zoom:50%;" /></p>
-<p>   作为轻薄本，小新air14只有1.4千克，用USB-C口充电。比较扯的是联想没有送便携充电器，买了个第三方65W PD充电器，比原来方便太多。键盘手感不如Y410P，毕竟是厚度小，键程也比较短。总之小新air14已经足够我用了。</p>
-<p>   希望小新air14也可以坚持七年，可能是我太穷 境界不够或者与电子产品消费观、认知有关。对我个人而言，电子产品就是工具和消耗品。一心想通过电子产品满足自己的优越感以提升自己地位与他人攀比的，真的很没水平。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://c0lt.com/2020/07/28/8/" data-id="ckd8havyl000dr4vt354m8uqt" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%87%AA%E8%A8%80%E8%87%AA%E8%AF%AD/" rel="tag">自言自语</a></li></ul>
-
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-  
-    <a href="/2020/06/24/7/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">念奴娇·郑铁一中</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CS%E6%B2%89%E6%80%9D/" rel="tag">CS沉思</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%87%AA%E8%A8%80%E8%87%AA%E8%AF%AD/" rel="tag">自言自语</a><span class="tag-list-count">4</span></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/CS%E6%B2%89%E6%80%9D/" style="font-size: 10px;">CS沉思</a> <a href="/tags/%E8%87%AA%E8%A8%80%E8%87%AA%E8%AF%AD/" style="font-size: 10px;">自言自语</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">4</span></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2020/07/28/8/">新电脑</a>
-          </li>
-        
-          <li>
-            <a href="/2020/06/24/7/">念奴娇·郑铁一中</a>
-          </li>
-        
-          <li>
-            <a href="/2020/05/23/6/">树莓派clash</a>
-          </li>
-        
-          <li>
-            <a href="/2020/05/12/5/">存在的意义</a>
-          </li>
-        
-          <li>
-            <a href="/2020/04/29/4/">Git</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2020 Colt<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-    <a href="/about" class="mobile-nav-link">About</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-  </div>
-</body>
-</html>
+    if page.comments
+      include _partial/comments.pug
