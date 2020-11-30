@@ -1,66 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>begin</title>
-    <url>/2020/04/24/1/</url>
-    <content><![CDATA[<p>从树莓派转至Github Pages，上个月我把博客部署到树莓派上，采用nginx+php+sqlite+typecho并frp外网。但我不放心树莓派24h开机，最终还是把博客部署到github上用hexo搭建。申请了一个域名c0lt.com，colt.com注册不到，总归比原来顺眼多了。主题使用next，换了几个主题还是觉得这个比较好。这次经历也让我学习了git，上个月折腾树莓派，让我补了不少计算机网络知识，Linux也更加熟悉。</p>
-<p>博客主要是日常的发现与所思所想，不想搞得太复杂.</p>
-]]></content>
-      <tags>
-        <tag>自言自语</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>评论系统</title>
-    <url>/2020/04/25/3/</url>
-    <content><![CDATA[<p><strong>现在为博客添加评论</strong></p>
-<p>Next主题</p>
-<p>这里使用valine，基于leancloud，比较稳定。</p>
-<p>在<a href="https://leancloud.cn/" target="_blank" rel="noopener">leancloud</a>创建账户并创建开发板。在存储中创建名为Comment、Counter的两个Class，权限为所有用户可以访问。<img src="https://s1.ax1x.com/2020/04/25/Jsm9IA.png" alt="valine"></p>
-<p>在设置 安全中心中将服务开关除数据存储外全部关闭，Web安全域名中添加自己的域名。</p>
-<p><img src="https://s1.ax1x.com/2020/04/25/JsniTJ.png" alt="安全"></p>
-<p>在设置 应用Keys中找到appid与appkey并复制</p>
-<p>在主题的_config.yml文件中找到valine（612行）粘贴自己的appid与appkey。</p>
-<p><strong>注意将enable设置为true。</strong></p>
-<p><img src="https://s1.ax1x.com/2020/04/25/JsngXT.png" alt="配置"></p>
-<p>接下来更换valine CDN</p>
-<p>在<a href="https://www.jsdelivr.com/package/npm/valine" target="_blank" rel="noopener">jsdelivr</a>中找到最新CDN copy URL</p>
-<p><img src="https://s1.ax1x.com/2020/04/25/Jsn4AJ.png" alt="cdn"></p>
-<p>在主题_config.yml文件中找到valine CDN（945行）粘贴</p>
-<p><img src="https://s1.ax1x.com/2020/04/25/Jsnz4A.png" alt="cdn1"></p>
-<p>保存 git后出现评论 test成功</p>
-<p><img src="https://s1.ax1x.com/2020/04/25/JsuZNj.png" alt="实现"></p>
-<p>评论后leancloud中会在Comment中生成数据，可以进行管理。</p>
-<p><img src="https://s1.ax1x.com/2020/04/25/JsusVe.png" alt="管理"></p>
-]]></content>
-      <tags>
-        <tag>CS沉思</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>更换DNS解析与CDN</title>
-    <url>/2020/04/24/2/</url>
-    <content><![CDATA[<p><strong>注册域名时使用了阿里云的DNS解析，现更换CloudFlare DNS并使用CDN。</strong></p>
-<ol>
-<li><p>将原DNS dns21.hichina.com dns22.hichina.com更换为harlee.ns.cloudflare.com weston.ns.cloudflare.com。</p>
-</li>
-<li><p>停止阿里云解析，开启CloudFlare，勾选CDN。</p>
-</li>
-<li><p>开启Under Attack 模式，打开网页后出现五秒盾。</p>
-</li>
-<li><p>进行SSL设置</p>
-</li>
-</ol>
-<p>现在网站已有SSL证书，并由CloudFlare保护防止DDoS ，管不管用就不知道了。</p>
-<p><em>找到一个不错的图床，名为路过图床。</em></p>
-<p><img src="https://s1.ax1x.com/2020/04/24/JDe0vF.png" alt="证书"></p>
-<p>最初我不想折腾CDN和SSL，但当我突然意识到colt.com是什么网站后，想想还是加上吧。</p>
-]]></content>
-      <tags>
-        <tag>CS沉思</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Git</title>
     <url>/2020/04/29/4/</url>
     <content><![CDATA[<p><strong>用hexo在github上部署博客，自然少不了git的使用，以下是我学习git的过程。</strong></p>
@@ -172,6 +112,16 @@
       </tags>
   </entry>
   <entry>
+    <title>begin</title>
+    <url>/2020/04/24/1/</url>
+    <content><![CDATA[<p>从树莓派转至Github Pages，上个月我把博客部署到树莓派上，采用nginx+php+sqlite+typecho并frp外网。但我不放心树莓派24h开机，最终还是把博客部署到github上用hexo搭建。申请了一个域名c0lt.com，colt.com注册不到，总归比原来顺眼多了。主题使用next，换了几个主题还是觉得这个比较好。这次经历也让我学习了git，上个月折腾树莓派，让我补了不少计算机网络知识，Linux也更加熟悉。</p>
+<p>博客主要是日常的发现与所思所想，不想搞得太复杂.</p>
+]]></content>
+      <tags>
+        <tag>自言自语</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>存在的意义</title>
     <url>/2020/05/12/5/</url>
     <content><![CDATA[<p>几年前的奇葩说里面，我非常喜欢刘可乐进场时的那段话，她自述有双相情感障碍，找过很多心理医生，同时也很想去想明白人生的意义到底在哪里。</p>
@@ -183,6 +133,56 @@
 ]]></content>
       <tags>
         <tag>自言自语</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>评论系统</title>
+    <url>/2020/04/25/3/</url>
+    <content><![CDATA[<p><strong>现在为博客添加评论</strong></p>
+<p>Next主题</p>
+<p>这里使用valine，基于leancloud，比较稳定。</p>
+<p>在<a href="https://leancloud.cn/" target="_blank" rel="noopener">leancloud</a>创建账户并创建开发板。在存储中创建名为Comment、Counter的两个Class，权限为所有用户可以访问。<img src="https://s1.ax1x.com/2020/04/25/Jsm9IA.png" alt="valine"></p>
+<p>在设置 安全中心中将服务开关除数据存储外全部关闭，Web安全域名中添加自己的域名。</p>
+<p><img src="https://s1.ax1x.com/2020/04/25/JsniTJ.png" alt="安全"></p>
+<p>在设置 应用Keys中找到appid与appkey并复制</p>
+<p>在主题的_config.yml文件中找到valine（612行）粘贴自己的appid与appkey。</p>
+<p><strong>注意将enable设置为true。</strong></p>
+<p><img src="https://s1.ax1x.com/2020/04/25/JsngXT.png" alt="配置"></p>
+<p>接下来更换valine CDN</p>
+<p>在<a href="https://www.jsdelivr.com/package/npm/valine" target="_blank" rel="noopener">jsdelivr</a>中找到最新CDN copy URL</p>
+<p><img src="https://s1.ax1x.com/2020/04/25/Jsn4AJ.png" alt="cdn"></p>
+<p>在主题_config.yml文件中找到valine CDN（945行）粘贴</p>
+<p><img src="https://s1.ax1x.com/2020/04/25/Jsnz4A.png" alt="cdn1"></p>
+<p>保存 git后出现评论 test成功</p>
+<p><img src="https://s1.ax1x.com/2020/04/25/JsuZNj.png" alt="实现"></p>
+<p>评论后leancloud中会在Comment中生成数据，可以进行管理。</p>
+<p><img src="https://s1.ax1x.com/2020/04/25/JsusVe.png" alt="管理"></p>
+]]></content>
+      <tags>
+        <tag>CS沉思</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>更换DNS解析与CDN</title>
+    <url>/2020/04/24/2/</url>
+    <content><![CDATA[<p><strong>注册域名时使用了阿里云的DNS解析，现更换CloudFlare DNS并使用CDN。</strong></p>
+<ol>
+<li><p>将原DNS dns21.hichina.com dns22.hichina.com更换为harlee.ns.cloudflare.com weston.ns.cloudflare.com。</p>
+</li>
+<li><p>停止阿里云解析，开启CloudFlare，勾选CDN。</p>
+</li>
+<li><p>开启Under Attack 模式，打开网页后出现五秒盾。</p>
+</li>
+<li><p>进行SSL设置</p>
+</li>
+</ol>
+<p>现在网站已有SSL证书，并由CloudFlare保护防止DDoS ，管不管用就不知道了。</p>
+<p><em>找到一个不错的图床，名为路过图床。</em></p>
+<p><img src="https://s1.ax1x.com/2020/04/24/JDe0vF.png" alt="证书"></p>
+<p>最初我不想折腾CDN和SSL，但当我突然意识到colt.com是什么网站后，想想还是加上吧。</p>
+]]></content>
+      <tags>
+        <tag>CS沉思</tag>
       </tags>
   </entry>
   <entry>
