@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>评论系统</title>
+    <url>/2020/04/25/3/</url>
+    <content><![CDATA[<p><strong>现在为博客添加评论</strong></p>
+<p>Next主题</p>
+<p>这里使用valine，基于leancloud，比较稳定。</p>
+<p>在<a href="https://leancloud.cn/" target="_blank" rel="noopener">leancloud</a>创建账户并创建开发板。在存储中创建名为Comment、Counter的两个Class，权限为所有用户可以访问。<img src="https://s1.ax1x.com/2020/04/25/Jsm9IA.png" alt="valine"></p>
+<p>在设置 安全中心中将服务开关除数据存储外全部关闭，Web安全域名中添加自己的域名。</p>
+<p><img src="https://s1.ax1x.com/2020/04/25/JsniTJ.png" alt="安全"></p>
+<p>在设置 应用Keys中找到appid与appkey并复制</p>
+<p>在主题的_config.yml文件中找到valine（612行）粘贴自己的appid与appkey。</p>
+<p><strong>注意将enable设置为true。</strong></p>
+<p><img src="https://s1.ax1x.com/2020/04/25/JsngXT.png" alt="配置"></p>
+<p>接下来更换valine CDN</p>
+<p>在<a href="https://www.jsdelivr.com/package/npm/valine" target="_blank" rel="noopener">jsdelivr</a>中找到最新CDN copy URL</p>
+<p><img src="https://s1.ax1x.com/2020/04/25/Jsn4AJ.png" alt="cdn"></p>
+<p>在主题_config.yml文件中找到valine CDN（945行）粘贴</p>
+<p><img src="https://s1.ax1x.com/2020/04/25/Jsnz4A.png" alt="cdn1"></p>
+<p>保存 git后出现评论 test成功</p>
+<p><img src="https://s1.ax1x.com/2020/04/25/JsuZNj.png" alt="实现"></p>
+<p>评论后leancloud中会在Comment中生成数据，可以进行管理。</p>
+<p><img src="https://s1.ax1x.com/2020/04/25/JsusVe.png" alt="管理"></p>
+]]></content>
+      <tags>
+        <tag>CS沉思</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>begin</title>
     <url>/2020/04/24/1/</url>
     <content><![CDATA[<p>从树莓派转至Github Pages，上个月我把博客部署到树莓派上，采用nginx+php+sqlite+typecho并frp外网。但我不放心树莓派24h开机，最终还是把博客部署到github上用hexo搭建。申请了一个域名c0lt.com，colt.com注册不到，总归比原来顺眼多了。主题使用next，换了几个主题还是觉得这个比较好。这次经历也让我学习了git，上个月折腾树莓派，让我补了不少计算机网络知识，Linux也更加熟悉。</p>
@@ -34,27 +61,33 @@
       </tags>
   </entry>
   <entry>
-    <title>存在的意义</title>
-    <url>/2020/05/12/5/</url>
-    <content><![CDATA[<p>几年前的奇葩说里面，我非常喜欢刘可乐进场时的那段话，她自述有双相情感障碍，找过很多心理医生，同时也很想去想明白人生的意义到底在哪里。</p>
-<p>直到有一天，有人问她：意义的意义又是什么呢？乍听起来是很绕，但是一瞬间就解开了所有问题，是啊，当我们自以为脱离了庸俗，去思考哲学的终极问题时，想要去找到人生意义的答案，这种行为本身就是没有意义的。</p>
-<p>当我们自以为众人皆醉我独醒的时候，也许人人都在忙碌的间隙里晃过这样一个问题：人生的意义是什么。我们不仅仅不特殊，甚至还是一个个重复的人类个体。</p>
-<p>以前我很喜欢毕淑敏给出的答案「人生的意义是需要你去赋予的」，但现在我更喜欢加缪所言没有意义的人生反而可以更好过活，「重要的不是治愈，而是带着病痛活下去」。</p>
-<p>浪漫派巴罗克风格的一位艺术家，曾经有过高论：「一切精神生活的目的就是成为上帝。」愿我们成为自己生活里的上帝。</p>
-<p>sspai 猫敏敏</p>
+    <title>树莓派clash</title>
+    <url>/2020/05/23/6/</url>
+    <content><![CDATA[<h1 id="Clash在树莓派上的实现"><a href="#Clash在树莓派上的实现" class="headerlink" title="Clash在树莓派上的实现"></a>Clash在树莓派上的实现</h1><p>树莓派吃灰已久，原来做过小型服务器和下载机。这次尝试在树莓派上部署Clash。</p>
+<h2 id="下载clash"><a href="#下载clash" class="headerlink" title="下载clash"></a>下载clash</h2><p>创建clash目录</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mkdir clash</span><br></pre></td></tr></table></figure>
+
+<p>在clash目录中下载</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo wget https:&#x2F;&#x2F;github.com&#x2F;Dreamacro&#x2F;clash&#x2F;releases&#x2F;download&#x2F;v0.16.0&#x2F;clash-linux-armv7-v0.16.0.gz</span><br></pre></td></tr></table></figure>
+
+<p><em>注意是arm版本</em></p>
+<p><img src="https://s1.ax1x.com/2020/05/23/YxnwHx.png" alt="clash1"></p>
+<p>解压并重命名</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tar -xzf clash-linux-armv8.tar.gz -O &gt; clash</span><br></pre></td></tr></table></figure>
+
+<p>赋予权限</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">chmod +x clash</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置clash"><a href="#配置clash" class="headerlink" title="配置clash"></a>配置clash</h2><p>这时候会在/home/pi/.config/clash中生成config.yaml的文件。</p>
+<p>Country.mmdb为全球IP库，可以实现各个国家的IP信息解析和地理定位，没有这个文件clash是无法运行的。但是现在的发行版好像有一个bug，就是无法自动生成这个IP库文件，并且终端中提供的网址也无法下载。可在网上找到Country.mmdb。</p>
+<p>将Country.mmdb拷贝到clash目录下。</p>
+<p>在第一次运行clash时，config文件为空。可购买机场，下载clash文件。</p>
+<p><img src="https://s1.ax1x.com/2020/05/23/YxnRKA.png" alt="clash2"></p>
+<p>将config.yml文件放至clash目录下，完成。</p>
+<p>也可以在使用 <a href="http://clash.razord.top" target="_blank" rel="noopener">http://clash.razord.top</a>  控制面板切换节点和模式。</p>
 ]]></content>
       <tags>
-        <tag>自言自语</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>念奴娇·郑铁一中</title>
-    <url>/2020/06/24/7/</url>
-    <content><![CDATA[<p>​                                                                           念奴娇·郑铁一中<br>黄河正泻,问河流此水,何年淘净。露冷三更刚挂起,悄见一帆轻影。陇海桥边,茭蒲顷里,玉镜飞寒莹。夕阳无力,碧天推上孤艇。</p>
-<p>遥想当日中兴,人文昌盛,光焰雄吴晋。坐对画图心自醉,把酒临风横咏。禹甸梅开,尧阶草绿,逝者如斯永。埃尘不到,闭门独卧清省。</p>
-]]></content>
-      <tags>
-        <tag>自言自语</tag>
+        <tag>CS沉思</tag>
       </tags>
   </entry>
   <entry>
@@ -169,33 +202,15 @@
       </tags>
   </entry>
   <entry>
-    <title>树莓派clash</title>
-    <url>/2020/05/23/6/</url>
-    <content><![CDATA[<h1 id="Clash在树莓派上的实现"><a href="#Clash在树莓派上的实现" class="headerlink" title="Clash在树莓派上的实现"></a>Clash在树莓派上的实现</h1><p>树莓派吃灰已久，原来做过小型服务器和下载机。这次尝试在树莓派上部署Clash。</p>
-<h2 id="下载clash"><a href="#下载clash" class="headerlink" title="下载clash"></a>下载clash</h2><p>创建clash目录</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mkdir clash</span><br></pre></td></tr></table></figure>
-
-<p>在clash目录中下载</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo wget https:&#x2F;&#x2F;github.com&#x2F;Dreamacro&#x2F;clash&#x2F;releases&#x2F;download&#x2F;v0.16.0&#x2F;clash-linux-armv7-v0.16.0.gz</span><br></pre></td></tr></table></figure>
-
-<p><em>注意是arm版本</em></p>
-<p><img src="https://s1.ax1x.com/2020/05/23/YxnwHx.png" alt="clash1"></p>
-<p>解压并重命名</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tar -xzf clash-linux-armv8.tar.gz -O &gt; clash</span><br></pre></td></tr></table></figure>
-
-<p>赋予权限</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">chmod +x clash</span><br></pre></td></tr></table></figure>
-
-<h2 id="配置clash"><a href="#配置clash" class="headerlink" title="配置clash"></a>配置clash</h2><p>这时候会在/home/pi/.config/clash中生成config.yaml的文件。</p>
-<p>Country.mmdb为全球IP库，可以实现各个国家的IP信息解析和地理定位，没有这个文件clash是无法运行的。但是现在的发行版好像有一个bug，就是无法自动生成这个IP库文件，并且终端中提供的网址也无法下载。可在网上找到Country.mmdb。</p>
-<p>将Country.mmdb拷贝到clash目录下。</p>
-<p>在第一次运行clash时，config文件为空。可购买机场，下载clash文件。</p>
-<p><img src="https://s1.ax1x.com/2020/05/23/YxnRKA.png" alt="clash2"></p>
-<p>将config.yml文件放至clash目录下，完成。</p>
-<p>也可以在使用 <a href="http://clash.razord.top" target="_blank" rel="noopener">http://clash.razord.top</a>  控制面板切换节点和模式。</p>
+    <title>新电脑</title>
+    <url>/2020/07/28/8/</url>
+    <content><![CDATA[<p>   一周前在推特上看见了一台二手的Surface Laptop，下定决心要换电脑。左思右想没有买那台Surface而是定了新出不久的小新Air14，这也是我时隔七年再次用上AMD的CPU。十几年前我的旧台式机用的是AMD四核速龙，14年买的联想Y410P和15年买的Macmini都是四代i5，当时的我绝对不会想到七年后我会再次用上AMD。Y410P是我平时最常用的。上高中时，我给它加了8G内存 换了480G的SSD。上了大学，换了电池 屏幕 网卡。其实是可以坚持四年的，但2.5千克的重量和1366*768 45%NTSC色域 低频PWM调光的屏幕实在让我恶心。Mac在家里除了用Xcode还真没怎么用。今年初下单了MBP13 2019。刚下单不久就刷到了2020的消息，Apple Store的店员还向我保证13寸近期不会更新。取消订单，等2020款。还好没有买Mbp，省下钱可以预定几个手办了。</p>
+<p>   小新Air14搭载AMD锐龙4600U，六核十二线程。比我原来的i5 4200M要好太多。没有独显，1920*1080 100%sRGB色域 DC调光，16G板载双通道DDR4 3200MHz内存，512G nvme TLC 三星pm981a SSD。其实还有西数黑盘SN730版，比较庆幸拿到三星的。<br><img src="https://s1.ax1x.com/2020/07/28/aEvAxJ.png" alt="cpu" style="zoom: 50%;" /><img src="https://s1.ax1x.com/2020/07/28/aEvk24.png" alt="cpu2" style="zoom:50%;" /></p>
+<p>   作为轻薄本，小新air14只有1.4千克，用USB-C口充电。比较扯的是联想没有送便携充电器，买了个第三方65W PD充电器，比原来方便太多。键盘手感不如Y410P，毕竟是厚度小，键程也比较短。总之小新air14已经足够我用了。</p>
+<p>   希望小新air14也可以坚持七年，可能是我太穷 境界不够或者与电子产品消费观、认知有关。对我个人而言，电子产品就是工具和消耗品。一心想通过电子产品满足自己的优越感以提升自己地位与他人攀比的，真的很没水平。</p>
 ]]></content>
       <tags>
-        <tag>CS沉思</tag>
+        <tag>自言自语</tag>
       </tags>
   </entry>
   <entry>
@@ -209,6 +224,7 @@
 <p>树莓派（熟悉Linux，搞了一些小项目）</p>
 <p>Linux</p>
 <p>Shell</p>
+<p>Git</p>
 <p>GitHub + Twitter（2015年的账号，今年在twitter认识了不少同年龄的大佬，在GitHub上找到不少好的开源项目）</p>
 <p>Java</p>
 <p>数据结构</p>
@@ -275,39 +291,24 @@
       </tags>
   </entry>
   <entry>
-    <title>评论系统</title>
-    <url>/2020/04/25/3/</url>
-    <content><![CDATA[<p><strong>现在为博客添加评论</strong></p>
-<p>Next主题</p>
-<p>这里使用valine，基于leancloud，比较稳定。</p>
-<p>在<a href="https://leancloud.cn/" target="_blank" rel="noopener">leancloud</a>创建账户并创建开发板。在存储中创建名为Comment、Counter的两个Class，权限为所有用户可以访问。<img src="https://s1.ax1x.com/2020/04/25/Jsm9IA.png" alt="valine"></p>
-<p>在设置 安全中心中将服务开关除数据存储外全部关闭，Web安全域名中添加自己的域名。</p>
-<p><img src="https://s1.ax1x.com/2020/04/25/JsniTJ.png" alt="安全"></p>
-<p>在设置 应用Keys中找到appid与appkey并复制</p>
-<p>在主题的_config.yml文件中找到valine（612行）粘贴自己的appid与appkey。</p>
-<p><strong>注意将enable设置为true。</strong></p>
-<p><img src="https://s1.ax1x.com/2020/04/25/JsngXT.png" alt="配置"></p>
-<p>接下来更换valine CDN</p>
-<p>在<a href="https://www.jsdelivr.com/package/npm/valine" target="_blank" rel="noopener">jsdelivr</a>中找到最新CDN copy URL</p>
-<p><img src="https://s1.ax1x.com/2020/04/25/Jsn4AJ.png" alt="cdn"></p>
-<p>在主题_config.yml文件中找到valine CDN（945行）粘贴</p>
-<p><img src="https://s1.ax1x.com/2020/04/25/Jsnz4A.png" alt="cdn1"></p>
-<p>保存 git后出现评论 test成功</p>
-<p><img src="https://s1.ax1x.com/2020/04/25/JsuZNj.png" alt="实现"></p>
-<p>评论后leancloud中会在Comment中生成数据，可以进行管理。</p>
-<p><img src="https://s1.ax1x.com/2020/04/25/JsusVe.png" alt="管理"></p>
+    <title>存在的意义</title>
+    <url>/2020/05/12/5/</url>
+    <content><![CDATA[<p>几年前的奇葩说里面，我非常喜欢刘可乐进场时的那段话，她自述有双相情感障碍，找过很多心理医生，同时也很想去想明白人生的意义到底在哪里。</p>
+<p>直到有一天，有人问她：意义的意义又是什么呢？乍听起来是很绕，但是一瞬间就解开了所有问题，是啊，当我们自以为脱离了庸俗，去思考哲学的终极问题时，想要去找到人生意义的答案，这种行为本身就是没有意义的。</p>
+<p>当我们自以为众人皆醉我独醒的时候，也许人人都在忙碌的间隙里晃过这样一个问题：人生的意义是什么。我们不仅仅不特殊，甚至还是一个个重复的人类个体。</p>
+<p>以前我很喜欢毕淑敏给出的答案「人生的意义是需要你去赋予的」，但现在我更喜欢加缪所言没有意义的人生反而可以更好过活，「重要的不是治愈，而是带着病痛活下去」。</p>
+<p>浪漫派巴罗克风格的一位艺术家，曾经有过高论：「一切精神生活的目的就是成为上帝。」愿我们成为自己生活里的上帝。</p>
+<p>sspai 猫敏敏</p>
 ]]></content>
       <tags>
-        <tag>CS沉思</tag>
+        <tag>自言自语</tag>
       </tags>
   </entry>
   <entry>
-    <title>新电脑</title>
-    <url>/2020/07/28/8/</url>
-    <content><![CDATA[<p>   一周前在推特上看见了一台二手的Surface Laptop，下定决心要换电脑。左思右想没有买那台Surface而是定了新出不久的小新Air14，这也是我时隔七年再次用上AMD的CPU。十几年前我的旧台式机用的是AMD四核速龙，14年买的联想Y410P和15年买的Macmini都是四代i5，当时的我绝对不会想到七年后我会再次用上AMD。Y410P是我平时最常用的。上高中时，我给它加了8G内存 换了480G的SSD。上了大学，换了电池 屏幕 网卡。其实是可以坚持四年的，但2.5千克的重量和1366*768 45%NTSC色域 低频PWM调光的屏幕实在让我恶心。Mac在家里除了用Xcode还真没怎么用。今年初下单了MBP13 2019。刚下单不久就刷到了2020的消息，Apple Store的店员还向我保证13寸近期不会更新。取消订单，等2020款。还好没有买Mbp，省下钱可以预定几个手办了。</p>
-<p>   小新Air14搭载AMD锐龙4600U，六核十二线程。比我原来的i5 4200M要好太多。没有独显，1920*1080 100%sRGB色域 DC调光，16G板载双通道DDR4 3200MHz内存，512G nvme TLC 三星pm981a SSD。其实还有西数黑盘SN730版，比较庆幸拿到三星的。<br><img src="https://s1.ax1x.com/2020/07/28/aEvAxJ.png" alt="cpu" style="zoom: 50%;" /><img src="https://s1.ax1x.com/2020/07/28/aEvk24.png" alt="cpu2" style="zoom:50%;" /></p>
-<p>   作为轻薄本，小新air14只有1.4千克，用USB-C口充电。比较扯的是联想没有送便携充电器，买了个第三方65W PD充电器，比原来方便太多。键盘手感不如Y410P，毕竟是厚度小，键程也比较短。总之小新air14已经足够我用了。</p>
-<p>   希望小新air14也可以坚持七年，可能是我太穷 境界不够或者与电子产品消费观、认知有关。对我个人而言，电子产品就是工具和消耗品。一心想通过电子产品满足自己的优越感以提升自己地位与他人攀比的，真的很没水平。</p>
+    <title>念奴娇·郑铁一中</title>
+    <url>/2020/06/24/7/</url>
+    <content><![CDATA[<p>​                                                                           念奴娇·郑铁一中<br>黄河正泻,问河流此水,何年淘净。露冷三更刚挂起,悄见一帆轻影。陇海桥边,茭蒲顷里,玉镜飞寒莹。夕阳无力,碧天推上孤艇。</p>
+<p>遥想当日中兴,人文昌盛,光焰雄吴晋。坐对画图心自醉,把酒临风横咏。禹甸梅开,尧阶草绿,逝者如斯永。埃尘不到,闭门独卧清省。</p>
 ]]></content>
       <tags>
         <tag>自言自语</tag>
