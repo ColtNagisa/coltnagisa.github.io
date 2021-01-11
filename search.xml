@@ -1,16 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>begin</title>
-    <url>/2020/04/24/1/</url>
-    <content><![CDATA[<p>从树莓派转至Github Pages，上个月我把博客部署到树莓派上，采用nginx+php+sqlite+typecho并frp外网。但我不放心树莓派24h开机，最终还是把博客部署到github上用hexo搭建。申请了一个域名c0lt.com，colt.com注册不到，总归比原来顺眼多了。主题使用next，换了几个主题还是觉得这个比较好。这次经历也让我学习了git，上个月折腾树莓派，让我补了不少计算机网络知识，Linux也更加熟悉。</p>
-<p>博客主要是日常的发现与所思所想，不想搞得太复杂.</p>
-]]></content>
-      <tags>
-        <tag>自言自语</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>更换DNS解析与CDN</title>
     <url>/2020/04/24/2/</url>
     <content><![CDATA[<p><strong>注册域名时使用了阿里云的DNS解析，现更换CloudFlare DNS并使用CDN。</strong></p>
@@ -31,6 +21,16 @@
 ]]></content>
       <tags>
         <tag>CS沉思</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>begin</title>
+    <url>/2020/04/24/1/</url>
+    <content><![CDATA[<p>从树莓派转至Github Pages，上个月我把博客部署到树莓派上，采用nginx+php+sqlite+typecho并frp外网。但我不放心树莓派24h开机，最终还是把博客部署到github上用hexo搭建。申请了一个域名c0lt.com，colt.com注册不到，总归比原来顺眼多了。主题使用next，换了几个主题还是觉得这个比较好。这次经历也让我学习了git，上个月折腾树莓派，让我补了不少计算机网络知识，Linux也更加熟悉。</p>
+<p>博客主要是日常的发现与所思所想，不想搞得太复杂.</p>
+]]></content>
+      <tags>
+        <tag>自言自语</tag>
       </tags>
   </entry>
   <entry>
