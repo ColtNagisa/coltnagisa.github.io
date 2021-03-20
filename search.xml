@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>begin</title>
+    <url>/2020/04/24/1/</url>
+    <content><![CDATA[<p>​    我的第一个博客创建于2018年，那时我还在上高中，并没有花太多心思。</p>
+<p>​    上个月，我又萌生了自建博客的想法。于是我把博客部署到树莓派上，采用nginx+php+sqlite+typecho并frp外网。但这样有明显的缺点，frp的域名过于繁琐，十分不美观。且需要树莓派24h开机，并不利于维护。</p>
+<p>​    我想到了Github Pages，博客部署到github上用hexo搭建，并申请了一个域名。DNS和CDN都交给cloudflare，没有备案。这样也有在大陆访问慢的缺点但总归比原来顺眼多了。这次经历也让我学习了git，上个月折腾树莓派，让我补了不少计算机网络知识，Linux也更加熟悉。</p>
+<p>​    博客主要是日常的发现与所思所想，不想搞得太复杂。</p>
+]]></content>
+      <tags>
+        <tag>自言自语</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>更换DNS解析与CDN</title>
     <url>/2020/04/24/2/</url>
     <content><![CDATA[<p><strong>注册域名时使用了阿里云的DNS解析，现更换CloudFlare DNS并使用CDN。</strong></p>
@@ -49,18 +61,6 @@
       </tags>
   </entry>
   <entry>
-    <title>begin</title>
-    <url>/2020/04/24/1/</url>
-    <content><![CDATA[<p>​    我的第一个博客创建于2018年，那时我还在上高中，并没有花太多心思。</p>
-<p>​    上个月，我又萌生了自建博客的想法。于是我把博客部署到树莓派上，采用nginx+php+sqlite+typecho并frp外网。但这样有明显的缺点，frp的域名过于繁琐，十分不美观。且需要树莓派24h开机，并不利于维护。</p>
-<p>​    我想到了Github Pages，博客部署到github上用hexo搭建，并申请了一个域名。DNS和CDN都交给cloudflare，没有备案。这样也有在大陆访问慢的缺点但总归比原来顺眼多了。这次经历也让我学习了git，上个月折腾树莓派，让我补了不少计算机网络知识，Linux也更加熟悉。</p>
-<p>​    博客主要是日常的发现与所思所想，不想搞得太复杂。</p>
-]]></content>
-      <tags>
-        <tag>自言自语</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>存在的意义</title>
     <url>/2020/05/12/5/</url>
     <content><![CDATA[<p>​    几年前的奇葩说里面，我非常喜欢刘可乐进场时的那段话，她自述有双相情感障碍，找过很多心理医生，同时也很想去想明白人生的意义到底在哪里。</p>
@@ -72,36 +72,6 @@
 ]]></content>
       <tags>
         <tag>别人说的</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>树莓派clash</title>
-    <url>/2020/05/23/6/</url>
-    <content><![CDATA[<h1 id="Clash在树莓派上的实现"><a href="#Clash在树莓派上的实现" class="headerlink" title="Clash在树莓派上的实现"></a>Clash在树莓派上的实现</h1><p>树莓派吃灰已久，原来做过小型服务器和下载机。这次尝试在树莓派上部署Clash。</p>
-<h2 id="下载clash"><a href="#下载clash" class="headerlink" title="下载clash"></a>下载clash</h2><p>创建clash目录</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mkdir clash</span><br></pre></td></tr></table></figure>
-
-<p>在clash目录中下载</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo wget https:&#x2F;&#x2F;github.com&#x2F;Dreamacro&#x2F;clash&#x2F;releases&#x2F;download&#x2F;v0.16.0&#x2F;clash-linux-armv7-v0.16.0.gz</span><br></pre></td></tr></table></figure>
-
-<p><em>注意是arm版本</em></p>
-<p><img src="https://s1.ax1x.com/2020/05/23/YxnwHx.png" alt="clash1"></p>
-<p>解压并重命名</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tar -xzf clash-linux-armv8.tar.gz -O &gt; clash</span><br></pre></td></tr></table></figure>
-
-<p>赋予权限</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">chmod +x clash</span><br></pre></td></tr></table></figure>
-
-<h2 id="配置clash"><a href="#配置clash" class="headerlink" title="配置clash"></a>配置clash</h2><p>这时候会在/home/pi/.config/clash中生成config.yaml的文件。</p>
-<p>Country.mmdb为全球IP库，可以实现各个国家的IP信息解析和地理定位，没有这个文件clash是无法运行的。但是现在的发行版好像有一个bug，就是无法自动生成这个IP库文件，并且终端中提供的网址也无法下载。可在网上找到Country.mmdb。</p>
-<p>将Country.mmdb拷贝到clash目录下。</p>
-<p>在第一次运行clash时，config文件为空。可购买机场，下载clash文件。</p>
-<p><img src="https://s1.ax1x.com/2020/05/23/YxnRKA.png" alt="clash2"></p>
-<p>将config.yml文件放至clash目录下，完成。</p>
-<p>也可以在使用 <a href="http://clash.razord.top" target="_blank" rel="noopener">http://clash.razord.top</a>  控制面板切换节点和模式。</p>
-]]></content>
-      <tags>
-        <tag>CS沉思</tag>
       </tags>
   </entry>
   <entry>
@@ -230,18 +200,6 @@
       </tags>
   </entry>
   <entry>
-    <title>新电脑</title>
-    <url>/2020/07/28/8/</url>
-    <content><![CDATA[<p>​    一周前在推特上看见了一台二手的Surface Laptop，惊讶现在的笔记本已经如此精致。看着我的y410p，下定决心要换电脑。左思右想没有买那台Surface而是定了新出不久的小新Air14，这也是我时隔七年再次用上AMD的CPU。</p>
-<p>​    十几年前我的旧台式机用的是AMD四核速龙，14年买的联想Y410P和15年买的Macmini都是四代i5，那时的我绝对不会想到七年后我会再次用上AMD。Y410P是我平时最常用的。其实是可以坚持四年的，但2.5千克的重量和低分辨率低色域的屏幕实在让我为难，背着y410p去图书馆是件很痛苦的事。</p>
-<p>   小新Air14搭载的AMD锐龙4600U比我原来的i5 4200M要好太多，屏幕也强不少。16G板载双通道内存和512G 三星pm981a SSD也足够我用。与y410p不同的是，air14没有独显。其实无所谓，在此方面我并没有太高的需求。作为轻薄本，小新air14只有1.4千克。但键盘手感不如Y410P，毕竟是厚度小，键程也比较短。<br><img src="https://s1.ax1x.com/2020/07/28/aEvAxJ.png" alt="cpu" style="zoom: 50%;" /><img src="https://s1.ax1x.com/2020/07/28/aEvk24.png" alt="cpu2" style="zoom:50%;" /></p>
-<p>   总而言之，air14很适合我。也希望air14能用个六七年，我实在不想在电子产品上下太多功夫。</p>
-]]></content>
-      <tags>
-        <tag>自言自语</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>2020年度总结</title>
     <url>/2020/12/25/9/</url>
     <content><![CDATA[<h2 id="今年"><a href="#今年" class="headerlink" title="今年"></a>今年</h2><p>​    2020对大多数人来说都是不平凡的一年。对我而言，今年的影响不如去年。虽然这一年我没什么的特别的收获，但不能说什么也没有变化。我从今年开始写年度总结，为来年做好规划，为以后的我做参考。</p>
@@ -322,6 +280,48 @@
 ]]></content>
       <tags>
         <tag>年度总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>新电脑</title>
+    <url>/2020/07/28/8/</url>
+    <content><![CDATA[<p>​    一周前在推特上看见了一台二手的Surface Laptop，惊讶现在的笔记本已经如此精致。看着我的y410p，下定决心要换电脑。左思右想没有买那台Surface而是定了新出不久的小新Air14，这也是我时隔七年再次用上AMD的CPU。</p>
+<p>​    十几年前我的旧台式机用的是AMD四核速龙，14年买的联想Y410P和15年买的Macmini都是四代i5，那时的我绝对不会想到七年后我会再次用上AMD。Y410P是我平时最常用的。其实是可以坚持四年的，但2.5千克的重量和低分辨率低色域的屏幕实在让我为难，背着y410p去图书馆是件很痛苦的事。</p>
+<p>   小新Air14搭载的AMD锐龙4600U比我原来的i5 4200M要好太多，屏幕也强不少。16G板载双通道内存和512G 三星pm981a SSD也足够我用。与y410p不同的是，air14没有独显。其实无所谓，在此方面我并没有太高的需求。作为轻薄本，小新air14只有1.4千克。但键盘手感不如Y410P，毕竟是厚度小，键程也比较短。<br><img src="https://s1.ax1x.com/2020/07/28/aEvAxJ.png" alt="cpu" style="zoom: 50%;" /><img src="https://s1.ax1x.com/2020/07/28/aEvk24.png" alt="cpu2" style="zoom:50%;" /></p>
+<p>   总而言之，air14很适合我。也希望air14能用个六七年，我实在不想在电子产品上下太多功夫。</p>
+]]></content>
+      <tags>
+        <tag>自言自语</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>树莓派clash</title>
+    <url>/2020/05/23/6/</url>
+    <content><![CDATA[<h1 id="Clash在树莓派上的实现"><a href="#Clash在树莓派上的实现" class="headerlink" title="Clash在树莓派上的实现"></a>Clash在树莓派上的实现</h1><p>树莓派吃灰已久，原来做过小型服务器和下载机。这次尝试在树莓派上部署Clash。</p>
+<h2 id="下载clash"><a href="#下载clash" class="headerlink" title="下载clash"></a>下载clash</h2><p>创建clash目录</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mkdir clash</span><br></pre></td></tr></table></figure>
+
+<p>在clash目录中下载</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo wget https:&#x2F;&#x2F;github.com&#x2F;Dreamacro&#x2F;clash&#x2F;releases&#x2F;download&#x2F;v0.16.0&#x2F;clash-linux-armv7-v0.16.0.gz</span><br></pre></td></tr></table></figure>
+
+<p><em>注意是arm版本</em></p>
+<p><img src="https://s1.ax1x.com/2020/05/23/YxnwHx.png" alt="clash1"></p>
+<p>解压并重命名</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tar -xzf clash-linux-armv8.tar.gz -O &gt; clash</span><br></pre></td></tr></table></figure>
+
+<p>赋予权限</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">chmod +x clash</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置clash"><a href="#配置clash" class="headerlink" title="配置clash"></a>配置clash</h2><p>这时候会在/home/pi/.config/clash中生成config.yaml的文件。</p>
+<p>Country.mmdb为全球IP库，可以实现各个国家的IP信息解析和地理定位，没有这个文件clash是无法运行的。但是现在的发行版好像有一个bug，就是无法自动生成这个IP库文件，并且终端中提供的网址也无法下载。可在网上找到Country.mmdb。</p>
+<p>将Country.mmdb拷贝到clash目录下。</p>
+<p>在第一次运行clash时，config文件为空。可购买机场，下载clash文件。</p>
+<p><img src="https://s1.ax1x.com/2020/05/23/YxnRKA.png" alt="clash2"></p>
+<p>将config.yml文件放至clash目录下，完成。</p>
+<p>也可以在使用 <a href="http://clash.razord.top" target="_blank" rel="noopener">http://clash.razord.top</a>  控制面板切换节点和模式。</p>
+]]></content>
+      <tags>
+        <tag>CS沉思</tag>
       </tags>
   </entry>
 </search>
