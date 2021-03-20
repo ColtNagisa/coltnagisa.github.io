@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>更换DNS解析与CDN</title>
+    <url>/2020/04/24/2/</url>
+    <content><![CDATA[<p><strong>注册域名时使用了阿里云的DNS解析，现更换CloudFlare DNS并使用CDN。</strong></p>
+<ol>
+<li><p>将原DNS dns21.hichina.com dns22.hichina.com更换为harlee.ns.cloudflare.com weston.ns.cloudflare.com。</p>
+</li>
+<li><p>停止阿里云解析，开启CloudFlare，勾选CDN。</p>
+</li>
+<li><p>开启Under Attack 模式，打开网页后出现五秒盾。</p>
+</li>
+<li><p>进行SSL设置</p>
+</li>
+</ol>
+<p>现在网站已有SSL证书，并由CloudFlare保护防止DDoS ，管不管用就不知道了。</p>
+<p><img src="https://s1.ax1x.com/2020/04/24/JDe0vF.png" alt="证书"></p>
+]]></content>
+      <tags>
+        <tag>CS沉思</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>评论系统</title>
     <url>/2020/04/25/3/</url>
     <content><![CDATA[<p><strong>现在为博客添加评论</strong></p>
@@ -40,14 +61,14 @@
       </tags>
   </entry>
   <entry>
-    <title>念奴娇·郑铁一中</title>
-    <url>/2020/06/24/7/</url>
-    <content><![CDATA[<p>​                                                                           </p>
-<p>​                                                                      <strong>念奴娇·郑铁一中</strong></p>
-<hr>
-<p>黄河正泻,问河流此水,何年淘净。露冷三更刚挂起,悄见一帆轻影。陇海桥边,茭蒲顷里,玉镜飞寒莹。夕阳无力,碧天推上孤艇。</p>
-<p>遥想当日中兴,人文昌盛,光焰雄吴晋。坐对画图心自醉,把酒临风横咏。禹甸梅开,尧阶草绿,逝者如斯永。埃尘不到,闭门独卧清省。</p>
-<p>——<a href="https://www.aichpoem.com" target="_blank" rel="noopener">诗三百</a></p>
+    <title>存在的意义</title>
+    <url>/2020/05/12/5/</url>
+    <content><![CDATA[<p>​    几年前的奇葩说里面，我非常喜欢刘可乐进场时的那段话，她自述有双相情感障碍，找过很多心理医生，同时也很想去想明白人生的意义到底在哪里。</p>
+<p>​    直到有一天，有人问她：意义的意义又是什么呢？乍听起来是很绕，但是一瞬间就解开了所有问题，是啊，当我们自以为脱离了庸俗，去思考哲学的终极问题时，想要去找到人生意义的答案，这种行为本身就是没有意义的。</p>
+<p>​    当我们自以为众人皆醉我独醒的时候，也许人人都在忙碌的间隙里晃过这样一个问题：人生的意义是什么。我们不仅仅不特殊，甚至还是一个个重复的人类个体。</p>
+<p>​    以前我很喜欢毕淑敏给出的答案「人生的意义是需要你去赋予的」，但现在我更喜欢加缪所言没有意义的人生反而可以更好过活，「重要的不是治愈，而是带着病痛活下去」。</p>
+<p>​    浪漫派巴罗克风格的一位艺术家，曾经有过高论：「一切精神生活的目的就是成为上帝。」愿我们成为自己生活里的上帝。</p>
+<p>——sspai 猫敏敏</p>
 ]]></content>
       <tags>
         <tag>别人说的</tag>
@@ -78,53 +99,6 @@
 <p><img src="https://s1.ax1x.com/2020/05/23/YxnRKA.png" alt="clash2"></p>
 <p>将config.yml文件放至clash目录下，完成。</p>
 <p>也可以在使用 <a href="http://clash.razord.top" target="_blank" rel="noopener">http://clash.razord.top</a>  控制面板切换节点和模式。</p>
-]]></content>
-      <tags>
-        <tag>CS沉思</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>存在的意义</title>
-    <url>/2020/05/12/5/</url>
-    <content><![CDATA[<p>​    几年前的奇葩说里面，我非常喜欢刘可乐进场时的那段话，她自述有双相情感障碍，找过很多心理医生，同时也很想去想明白人生的意义到底在哪里。</p>
-<p>​    直到有一天，有人问她：意义的意义又是什么呢？乍听起来是很绕，但是一瞬间就解开了所有问题，是啊，当我们自以为脱离了庸俗，去思考哲学的终极问题时，想要去找到人生意义的答案，这种行为本身就是没有意义的。</p>
-<p>​    当我们自以为众人皆醉我独醒的时候，也许人人都在忙碌的间隙里晃过这样一个问题：人生的意义是什么。我们不仅仅不特殊，甚至还是一个个重复的人类个体。</p>
-<p>​    以前我很喜欢毕淑敏给出的答案「人生的意义是需要你去赋予的」，但现在我更喜欢加缪所言没有意义的人生反而可以更好过活，「重要的不是治愈，而是带着病痛活下去」。</p>
-<p>​    浪漫派巴罗克风格的一位艺术家，曾经有过高论：「一切精神生活的目的就是成为上帝。」愿我们成为自己生活里的上帝。</p>
-<p>——sspai 猫敏敏</p>
-]]></content>
-      <tags>
-        <tag>别人说的</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>新电脑</title>
-    <url>/2020/07/28/8/</url>
-    <content><![CDATA[<p>​    一周前在推特上看见了一台二手的Surface Laptop，惊讶现在的笔记本已经如此精致。看着我的y410p，下定决心要换电脑。左思右想没有买那台Surface而是定了新出不久的小新Air14，这也是我时隔七年再次用上AMD的CPU。</p>
-<p>​    十几年前我的旧台式机用的是AMD四核速龙，14年买的联想Y410P和15年买的Macmini都是四代i5，那时的我绝对不会想到七年后我会再次用上AMD。Y410P是我平时最常用的。其实是可以坚持四年的，但2.5千克的重量和低分辨率低色域的屏幕实在让我为难，背着y410p去图书馆是件很痛苦的事。</p>
-<p>   小新Air14搭载的AMD锐龙4600U比我原来的i5 4200M要好太多，屏幕也强不少。16G板载双通道内存和512G 三星pm981a SSD也足够我用。与y410p不同的是，air14没有独显。其实无所谓，在此方面我并没有太高的需求。作为轻薄本，小新air14只有1.4千克。但键盘手感不如Y410P，毕竟是厚度小，键程也比较短。<br><img src="https://s1.ax1x.com/2020/07/28/aEvAxJ.png" alt="cpu" style="zoom: 50%;" /><img src="https://s1.ax1x.com/2020/07/28/aEvk24.png" alt="cpu2" style="zoom:50%;" /></p>
-<p>   总而言之，air14很适合我。也希望air14能用个六七年，我实在不想在电子产品上下太多功夫。</p>
-]]></content>
-      <tags>
-        <tag>自言自语</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>更换DNS解析与CDN</title>
-    <url>/2020/04/24/2/</url>
-    <content><![CDATA[<p><strong>注册域名时使用了阿里云的DNS解析，现更换CloudFlare DNS并使用CDN。</strong></p>
-<ol>
-<li><p>将原DNS dns21.hichina.com dns22.hichina.com更换为harlee.ns.cloudflare.com weston.ns.cloudflare.com。</p>
-</li>
-<li><p>停止阿里云解析，开启CloudFlare，勾选CDN。</p>
-</li>
-<li><p>开启Under Attack 模式，打开网页后出现五秒盾。</p>
-</li>
-<li><p>进行SSL设置</p>
-</li>
-</ol>
-<p>现在网站已有SSL证书，并由CloudFlare保护防止DDoS ，管不管用就不知道了。</p>
-<p><img src="https://s1.ax1x.com/2020/04/24/JDe0vF.png" alt="证书"></p>
 ]]></content>
       <tags>
         <tag>CS沉思</tag>
@@ -239,6 +213,32 @@
 ]]></content>
       <tags>
         <tag>CS沉思</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>念奴娇·郑铁一中</title>
+    <url>/2020/06/24/7/</url>
+    <content><![CDATA[<p>​                                                                           </p>
+<p>​                                                                      <strong>念奴娇·郑铁一中</strong></p>
+<hr>
+<p>黄河正泻,问河流此水,何年淘净。露冷三更刚挂起,悄见一帆轻影。陇海桥边,茭蒲顷里,玉镜飞寒莹。夕阳无力,碧天推上孤艇。</p>
+<p>遥想当日中兴,人文昌盛,光焰雄吴晋。坐对画图心自醉,把酒临风横咏。禹甸梅开,尧阶草绿,逝者如斯永。埃尘不到,闭门独卧清省。</p>
+<p>——<a href="https://www.aichpoem.com" target="_blank" rel="noopener">诗三百</a></p>
+]]></content>
+      <tags>
+        <tag>别人说的</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>新电脑</title>
+    <url>/2020/07/28/8/</url>
+    <content><![CDATA[<p>​    一周前在推特上看见了一台二手的Surface Laptop，惊讶现在的笔记本已经如此精致。看着我的y410p，下定决心要换电脑。左思右想没有买那台Surface而是定了新出不久的小新Air14，这也是我时隔七年再次用上AMD的CPU。</p>
+<p>​    十几年前我的旧台式机用的是AMD四核速龙，14年买的联想Y410P和15年买的Macmini都是四代i5，那时的我绝对不会想到七年后我会再次用上AMD。Y410P是我平时最常用的。其实是可以坚持四年的，但2.5千克的重量和低分辨率低色域的屏幕实在让我为难，背着y410p去图书馆是件很痛苦的事。</p>
+<p>   小新Air14搭载的AMD锐龙4600U比我原来的i5 4200M要好太多，屏幕也强不少。16G板载双通道内存和512G 三星pm981a SSD也足够我用。与y410p不同的是，air14没有独显。其实无所谓，在此方面我并没有太高的需求。作为轻薄本，小新air14只有1.4千克。但键盘手感不如Y410P，毕竟是厚度小，键程也比较短。<br><img src="https://s1.ax1x.com/2020/07/28/aEvAxJ.png" alt="cpu" style="zoom: 50%;" /><img src="https://s1.ax1x.com/2020/07/28/aEvk24.png" alt="cpu2" style="zoom:50%;" /></p>
+<p>   总而言之，air14很适合我。也希望air14能用个六七年，我实在不想在电子产品上下太多功夫。</p>
+]]></content>
+      <tags>
+        <tag>自言自语</tag>
       </tags>
   </entry>
   <entry>
