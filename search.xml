@@ -13,27 +13,6 @@
       </tags>
   </entry>
   <entry>
-    <title>更换DNS解析与CDN</title>
-    <url>/2020/04/24/2/</url>
-    <content><![CDATA[<p><strong>注册域名时使用了阿里云的DNS解析，现更换CloudFlare DNS并使用CDN。</strong></p>
-<ol>
-<li><p>将原DNS dns21.hichina.com dns22.hichina.com更换为harlee.ns.cloudflare.com weston.ns.cloudflare.com。</p>
-</li>
-<li><p>停止阿里云解析，开启CloudFlare，勾选CDN。</p>
-</li>
-<li><p>开启Under Attack 模式，打开网页后出现五秒盾。</p>
-</li>
-<li><p>进行SSL设置</p>
-</li>
-</ol>
-<p>现在网站已有SSL证书，并由CloudFlare保护防止DDoS ，管不管用就不知道了。</p>
-<p><img src="https://s1.ax1x.com/2020/04/24/JDe0vF.png" alt="证书"></p>
-]]></content>
-      <tags>
-        <tag>CS沉思</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>评论系统</title>
     <url>/2020/04/25/3/</url>
     <content><![CDATA[<p><strong>现在为博客添加评论</strong></p>
@@ -61,6 +40,36 @@
       </tags>
   </entry>
   <entry>
+    <title>树莓派clash</title>
+    <url>/2020/05/23/6/</url>
+    <content><![CDATA[<h1 id="Clash在树莓派上的实现"><a href="#Clash在树莓派上的实现" class="headerlink" title="Clash在树莓派上的实现"></a>Clash在树莓派上的实现</h1><p>树莓派吃灰已久，原来做过小型服务器和下载机。这次尝试在树莓派上部署Clash。</p>
+<h2 id="下载clash"><a href="#下载clash" class="headerlink" title="下载clash"></a>下载clash</h2><p>创建clash目录</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mkdir clash</span><br></pre></td></tr></table></figure>
+
+<p>在clash目录中下载</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo wget https:&#x2F;&#x2F;github.com&#x2F;Dreamacro&#x2F;clash&#x2F;releases&#x2F;download&#x2F;v0.16.0&#x2F;clash-linux-armv7-v0.16.0.gz</span><br></pre></td></tr></table></figure>
+
+<p><em>注意是arm版本</em></p>
+<p><img src="https://s1.ax1x.com/2020/05/23/YxnwHx.png" alt="clash1"></p>
+<p>解压并重命名</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tar -xzf clash-linux-armv8.tar.gz -O &gt; clash</span><br></pre></td></tr></table></figure>
+
+<p>赋予权限</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">chmod +x clash</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置clash"><a href="#配置clash" class="headerlink" title="配置clash"></a>配置clash</h2><p>这时候会在/home/pi/.config/clash中生成config.yaml的文件。</p>
+<p>Country.mmdb为全球IP库，可以实现各个国家的IP信息解析和地理定位，没有这个文件clash是无法运行的。但是现在的发行版好像有一个bug，就是无法自动生成这个IP库文件，并且终端中提供的网址也无法下载。可在网上找到Country.mmdb。</p>
+<p>将Country.mmdb拷贝到clash目录下。</p>
+<p>在第一次运行clash时，config文件为空。可购买机场，下载clash文件。</p>
+<p><img src="https://s1.ax1x.com/2020/05/23/YxnRKA.png" alt="clash2"></p>
+<p>将config.yml文件放至clash目录下，完成。</p>
+<p>也可以在使用 <a href="http://clash.razord.top" target="_blank" rel="noopener">http://clash.razord.top</a>  控制面板切换节点和模式。</p>
+]]></content>
+      <tags>
+        <tag>CS沉思</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>存在的意义</title>
     <url>/2020/05/12/5/</url>
     <content><![CDATA[<p>​    几年前的奇葩说里面，我非常喜欢刘可乐进场时的那段话，她自述有双相情感障碍，找过很多心理医生，同时也很想去想明白人生的意义到底在哪里。</p>
@@ -69,20 +78,6 @@
 <p>​    以前我很喜欢毕淑敏给出的答案「人生的意义是需要你去赋予的」，但现在我更喜欢加缪所言没有意义的人生反而可以更好过活，「重要的不是治愈，而是带着病痛活下去」。</p>
 <p>​    浪漫派巴罗克风格的一位艺术家，曾经有过高论：「一切精神生活的目的就是成为上帝。」愿我们成为自己生活里的上帝。</p>
 <p>——sspai 猫敏敏</p>
-]]></content>
-      <tags>
-        <tag>别人说的</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>念奴娇·郑铁一中</title>
-    <url>/2020/06/24/7/</url>
-    <content><![CDATA[<p>​                                                                           </p>
-<p>​                                                                      <strong>念奴娇·郑铁一中</strong></p>
-<hr>
-<p>黄河正泻,问河流此水,何年淘净。露冷三更刚挂起,悄见一帆轻影。陇海桥边,茭蒲顷里,玉镜飞寒莹。夕阳无力,碧天推上孤艇。</p>
-<p>遥想当日中兴,人文昌盛,光焰雄吴晋。坐对画图心自醉,把酒临风横咏。禹甸梅开,尧阶草绿,逝者如斯永。埃尘不到,闭门独卧清省。</p>
-<p>——<a href="https://www.aichpoem.com" target="_blank" rel="noopener">诗三百</a></p>
 ]]></content>
       <tags>
         <tag>别人说的</tag>
@@ -200,36 +195,6 @@
       </tags>
   </entry>
   <entry>
-    <title>树莓派clash</title>
-    <url>/2020/05/23/6/</url>
-    <content><![CDATA[<h1 id="Clash在树莓派上的实现"><a href="#Clash在树莓派上的实现" class="headerlink" title="Clash在树莓派上的实现"></a>Clash在树莓派上的实现</h1><p>树莓派吃灰已久，原来做过小型服务器和下载机。这次尝试在树莓派上部署Clash。</p>
-<h2 id="下载clash"><a href="#下载clash" class="headerlink" title="下载clash"></a>下载clash</h2><p>创建clash目录</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mkdir clash</span><br></pre></td></tr></table></figure>
-
-<p>在clash目录中下载</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo wget https:&#x2F;&#x2F;github.com&#x2F;Dreamacro&#x2F;clash&#x2F;releases&#x2F;download&#x2F;v0.16.0&#x2F;clash-linux-armv7-v0.16.0.gz</span><br></pre></td></tr></table></figure>
-
-<p><em>注意是arm版本</em></p>
-<p><img src="https://s1.ax1x.com/2020/05/23/YxnwHx.png" alt="clash1"></p>
-<p>解压并重命名</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tar -xzf clash-linux-armv8.tar.gz -O &gt; clash</span><br></pre></td></tr></table></figure>
-
-<p>赋予权限</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">chmod +x clash</span><br></pre></td></tr></table></figure>
-
-<h2 id="配置clash"><a href="#配置clash" class="headerlink" title="配置clash"></a>配置clash</h2><p>这时候会在/home/pi/.config/clash中生成config.yaml的文件。</p>
-<p>Country.mmdb为全球IP库，可以实现各个国家的IP信息解析和地理定位，没有这个文件clash是无法运行的。但是现在的发行版好像有一个bug，就是无法自动生成这个IP库文件，并且终端中提供的网址也无法下载。可在网上找到Country.mmdb。</p>
-<p>将Country.mmdb拷贝到clash目录下。</p>
-<p>在第一次运行clash时，config文件为空。可购买机场，下载clash文件。</p>
-<p><img src="https://s1.ax1x.com/2020/05/23/YxnRKA.png" alt="clash2"></p>
-<p>将config.yml文件放至clash目录下，完成。</p>
-<p>也可以在使用 <a href="http://clash.razord.top" target="_blank" rel="noopener">http://clash.razord.top</a>  控制面板切换节点和模式。</p>
-]]></content>
-      <tags>
-        <tag>CS沉思</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>新电脑</title>
     <url>/2020/07/28/8/</url>
     <content><![CDATA[<p>​    一周前在推特上看见了一台二手的Surface Laptop，惊讶现在的笔记本已经如此精致。看着我的y410p，下定决心要换电脑。左思右想没有买那台Surface而是定了新出不久的小新Air14，这也是我时隔七年再次用上AMD的CPU。</p>
@@ -239,6 +204,27 @@
 ]]></content>
       <tags>
         <tag>自言自语</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>更换DNS解析与CDN</title>
+    <url>/2020/04/24/2/</url>
+    <content><![CDATA[<p><strong>注册域名时使用了阿里云的DNS解析，现更换CloudFlare DNS并使用CDN。</strong></p>
+<ol>
+<li><p>将原DNS dns21.hichina.com dns22.hichina.com更换为harlee.ns.cloudflare.com weston.ns.cloudflare.com。</p>
+</li>
+<li><p>停止阿里云解析，开启CloudFlare，勾选CDN。</p>
+</li>
+<li><p>开启Under Attack 模式，打开网页后出现五秒盾。</p>
+</li>
+<li><p>进行SSL设置</p>
+</li>
+</ol>
+<p>现在网站已有SSL证书，并由CloudFlare保护防止DDoS ，管不管用就不知道了。</p>
+<p><img src="https://s1.ax1x.com/2020/04/24/JDe0vF.png" alt="证书"></p>
+]]></content>
+      <tags>
+        <tag>CS沉思</tag>
       </tags>
   </entry>
   <entry>
@@ -314,6 +300,20 @@
 ]]></content>
       <tags>
         <tag>年度总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>念奴娇·郑铁一中</title>
+    <url>/2020/06/24/7/</url>
+    <content><![CDATA[<p>​                                                                           </p>
+<p>​                                                                      <strong>念奴娇·郑铁一中</strong></p>
+<hr>
+<p>黄河正泻,问河流此水,何年淘净。露冷三更刚挂起,悄见一帆轻影。陇海桥边,茭蒲顷里,玉镜飞寒莹。夕阳无力,碧天推上孤艇。</p>
+<p>遥想当日中兴,人文昌盛,光焰雄吴晋。坐对画图心自醉,把酒临风横咏。禹甸梅开,尧阶草绿,逝者如斯永。埃尘不到,闭门独卧清省。</p>
+<p>——<a href="https://www.aichpoem.com" target="_blank" rel="noopener">诗三百</a></p>
+]]></content>
+      <tags>
+        <tag>别人说的</tag>
       </tags>
   </entry>
 </search>
