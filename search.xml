@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>begin</title>
-    <url>/2020/04/24/1/</url>
-    <content><![CDATA[<p>​    我的第一个博客创建于2018年，那时我还在上高中，并没有花太多心思。</p>
-<p>​    上个月，我又萌生了自建博客的想法。于是我把博客部署到树莓派上，采用nginx+php+sqlite+typecho并frp外网。但这样有明显的缺点，frp的域名过于繁琐，十分不美观。且需要树莓派24h开机，并不利于维护。</p>
-<p>​    我想到了Github Pages，博客部署到github上用hexo搭建，并申请了一个域名。DNS和CDN都交给cloudflare，没有备案。这样也有在大陆访问慢的缺点但总归比原来顺眼多了。这次经历也让我学习了git，上个月折腾树莓派，让我补了不少计算机网络知识，Linux也更加熟悉。</p>
-<p>​    博客主要是日常的发现与所思所想，不想搞得太复杂。</p>
-]]></content>
-      <tags>
-        <tag>自言自语</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>更换DNS解析与CDN</title>
     <url>/2020/04/24/2/</url>
     <content><![CDATA[<p><strong>注册域名时使用了阿里云的DNS解析，现更换CloudFlare DNS并使用CDN。</strong></p>
@@ -172,6 +160,18 @@
       </tags>
   </entry>
   <entry>
+    <title>begin</title>
+    <url>/2020/04/24/1/</url>
+    <content><![CDATA[<p>​    我的第一个博客创建于2018年，那时我还在上高中，并没有花太多心思。</p>
+<p>​    上个月，我又萌生了自建博客的想法。于是我把博客部署到树莓派上，采用nginx+php+sqlite+typecho并frp外网。但这样有明显的缺点，frp的域名过于繁琐，十分不美观。且需要树莓派24h开机，并不利于维护。</p>
+<p>​    我想到了Github Pages，博客部署到github上用hexo搭建，并申请了一个域名。DNS和CDN都交给cloudflare，没有备案。这样也有在大陆访问慢的缺点但总归比原来顺眼多了。这次经历也让我学习了git，上个月折腾树莓派，让我补了不少计算机网络知识，Linux也更加熟悉。</p>
+<p>​    博客主要是日常的发现与所思所想，不想搞得太复杂。</p>
+]]></content>
+      <tags>
+        <tag>自言自语</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>存在的意义</title>
     <url>/2020/05/12/5/</url>
     <content><![CDATA[<p>​    几年前的奇葩说里面，我非常喜欢刘可乐进场时的那段话，她自述有双相情感障碍，找过很多心理医生，同时也很想去想明白人生的意义到底在哪里。</p>
@@ -186,17 +186,15 @@
       </tags>
   </entry>
   <entry>
-    <title>念奴娇·郑铁一中</title>
-    <url>/2020/06/24/7/</url>
-    <content><![CDATA[<p>​                                                                           </p>
-<p>​                                                                      <strong>念奴娇·郑铁一中</strong></p>
-<hr>
-<p>黄河正泻,问河流此水,何年淘净。露冷三更刚挂起,悄见一帆轻影。陇海桥边,茭蒲顷里,玉镜飞寒莹。夕阳无力,碧天推上孤艇。</p>
-<p>遥想当日中兴,人文昌盛,光焰雄吴晋。坐对画图心自醉,把酒临风横咏。禹甸梅开,尧阶草绿,逝者如斯永。埃尘不到,闭门独卧清省。</p>
-<p>——<a href="https://www.aichpoem.com" target="_blank" rel="noopener">诗三百</a></p>
+    <title>新电脑</title>
+    <url>/2020/07/28/8/</url>
+    <content><![CDATA[<p>​    一周前在推特上看见了一台二手的Surface Laptop，惊讶现在的笔记本已经如此精致。看着我的y410p，下定决心要换电脑。左思右想没有买那台Surface而是定了新出不久的小新Air14，这也是我时隔七年再次用上AMD的CPU。</p>
+<p>​    十几年前我的旧台式机用的是AMD四核速龙，14年买的联想Y410P和15年买的Macmini都是四代i5，那时的我绝对不会想到七年后我会再次用上AMD。Y410P是我平时最常用的。其实是可以坚持四年的，但2.5千克的重量和低分辨率低色域的屏幕实在让我为难，背着y410p去图书馆是件很痛苦的事。</p>
+<p>   小新Air14搭载的AMD锐龙4600U比我原来的i5 4200M要好太多，屏幕也强不少。16G板载双通道内存和512G 三星pm981a SSD也足够我用。与y410p不同的是，air14没有独显。其实无所谓，在此方面我并没有太高的需求。作为轻薄本，小新air14只有1.4千克。但键盘手感不如Y410P，毕竟是厚度小，键程也比较短。<br><img src="https://s1.ax1x.com/2020/07/28/aEvAxJ.png" alt="cpu" style="zoom: 50%;" /><img src="https://s1.ax1x.com/2020/07/28/aEvk24.png" alt="cpu2" style="zoom:50%;" /></p>
+<p>   总而言之，air14很适合我。也希望air14能用个六七年，我实在不想在电子产品上下太多功夫。</p>
 ]]></content>
       <tags>
-        <tag>别人说的</tag>
+        <tag>自言自语</tag>
       </tags>
   </entry>
   <entry>
@@ -230,15 +228,17 @@
       </tags>
   </entry>
   <entry>
-    <title>新电脑</title>
-    <url>/2020/07/28/8/</url>
-    <content><![CDATA[<p>​    一周前在推特上看见了一台二手的Surface Laptop，惊讶现在的笔记本已经如此精致。看着我的y410p，下定决心要换电脑。左思右想没有买那台Surface而是定了新出不久的小新Air14，这也是我时隔七年再次用上AMD的CPU。</p>
-<p>​    十几年前我的旧台式机用的是AMD四核速龙，14年买的联想Y410P和15年买的Macmini都是四代i5，那时的我绝对不会想到七年后我会再次用上AMD。Y410P是我平时最常用的。其实是可以坚持四年的，但2.5千克的重量和低分辨率低色域的屏幕实在让我为难，背着y410p去图书馆是件很痛苦的事。</p>
-<p>   小新Air14搭载的AMD锐龙4600U比我原来的i5 4200M要好太多，屏幕也强不少。16G板载双通道内存和512G 三星pm981a SSD也足够我用。与y410p不同的是，air14没有独显。其实无所谓，在此方面我并没有太高的需求。作为轻薄本，小新air14只有1.4千克。但键盘手感不如Y410P，毕竟是厚度小，键程也比较短。<br><img src="https://s1.ax1x.com/2020/07/28/aEvAxJ.png" alt="cpu" style="zoom: 50%;" /><img src="https://s1.ax1x.com/2020/07/28/aEvk24.png" alt="cpu2" style="zoom:50%;" /></p>
-<p>   总而言之，air14很适合我。也希望air14能用个六七年，我实在不想在电子产品上下太多功夫。</p>
+    <title>念奴娇·郑铁一中</title>
+    <url>/2020/06/24/7/</url>
+    <content><![CDATA[<p>​                                                                           </p>
+<p>​                                                                      <strong>念奴娇·郑铁一中</strong></p>
+<hr>
+<p>黄河正泻,问河流此水,何年淘净。露冷三更刚挂起,悄见一帆轻影。陇海桥边,茭蒲顷里,玉镜飞寒莹。夕阳无力,碧天推上孤艇。</p>
+<p>遥想当日中兴,人文昌盛,光焰雄吴晋。坐对画图心自醉,把酒临风横咏。禹甸梅开,尧阶草绿,逝者如斯永。埃尘不到,闭门独卧清省。</p>
+<p>——<a href="https://www.aichpoem.com" target="_blank" rel="noopener">诗三百</a></p>
 ]]></content>
       <tags>
-        <tag>自言自语</tag>
+        <tag>别人说的</tag>
       </tags>
   </entry>
   <entry>
