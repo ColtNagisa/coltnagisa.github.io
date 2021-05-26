@@ -13,169 +13,6 @@
       </tags>
   </entry>
   <entry>
-    <title>评论系统</title>
-    <url>/2020/04/25/3/</url>
-    <content><![CDATA[<p><strong>现在为博客添加评论</strong></p>
-<p>Next主题</p>
-<p>这里使用valine，基于leancloud，比较稳定。</p>
-<p>在<a href="https://leancloud.cn/" target="_blank" rel="noopener">leancloud</a>创建账户并创建开发板。在存储中创建名为Comment、Counter的两个Class，权限为所有用户可以访问。<img src="https://s1.ax1x.com/2020/04/25/Jsm9IA.png" alt="valine"></p>
-<p>在设置 安全中心中将服务开关除数据存储外全部关闭，Web安全域名中添加自己的域名。</p>
-<p><img src="https://s1.ax1x.com/2020/04/25/JsniTJ.png" alt="安全"></p>
-<p>在设置 应用Keys中找到appid与appkey并复制</p>
-<p>在主题的_config.yml文件中找到valine（612行）粘贴自己的appid与appkey。</p>
-<p><strong>注意将enable设置为true。</strong></p>
-<p><img src="https://s1.ax1x.com/2020/04/25/JsngXT.png" alt="配置"></p>
-<p>接下来更换valine CDN</p>
-<p>在<a href="https://www.jsdelivr.com/package/npm/valine" target="_blank" rel="noopener">jsdelivr</a>中找到最新CDN copy URL</p>
-<p><img src="https://s1.ax1x.com/2020/04/25/Jsn4AJ.png" alt="cdn"></p>
-<p>在主题_config.yml文件中找到valine CDN（945行）粘贴</p>
-<p><img src="https://s1.ax1x.com/2020/04/25/Jsnz4A.png" alt="cdn1"></p>
-<p>保存 git后出现评论 test成功</p>
-<p><img src="https://s1.ax1x.com/2020/04/25/JsuZNj.png" alt="实现"></p>
-<p>评论后leancloud中会在Comment中生成数据，可以进行管理。</p>
-<p><img src="https://s1.ax1x.com/2020/04/25/JsusVe.png" alt="管理"></p>
-]]></content>
-      <tags>
-        <tag>CS沉思</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>更换DNS解析与CDN</title>
-    <url>/2020/04/24/2/</url>
-    <content><![CDATA[<p><strong>注册域名时使用了阿里云的DNS解析，现更换CloudFlare DNS并使用CDN。</strong></p>
-<ol>
-<li><p>将原DNS dns21.hichina.com dns22.hichina.com更换为harlee.ns.cloudflare.com weston.ns.cloudflare.com。</p>
-</li>
-<li><p>停止阿里云解析，开启CloudFlare，勾选CDN。</p>
-</li>
-<li><p>开启Under Attack 模式，打开网页后出现五秒盾。</p>
-</li>
-<li><p>进行SSL设置</p>
-</li>
-</ol>
-<p>现在网站已有SSL证书，并由CloudFlare保护防止DDoS ，管不管用就不知道了。</p>
-<p><img src="https://s1.ax1x.com/2020/04/24/JDe0vF.png" alt="证书"></p>
-]]></content>
-      <tags>
-        <tag>CS沉思</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>存在的意义</title>
-    <url>/2020/05/12/5/</url>
-    <content><![CDATA[<p>​    几年前的奇葩说里面，我非常喜欢刘可乐进场时的那段话，她自述有双相情感障碍，找过很多心理医生，同时也很想去想明白人生的意义到底在哪里。</p>
-<p>​    直到有一天，有人问她：意义的意义又是什么呢？乍听起来是很绕，但是一瞬间就解开了所有问题，是啊，当我们自以为脱离了庸俗，去思考哲学的终极问题时，想要去找到人生意义的答案，这种行为本身就是没有意义的。</p>
-<p>​    当我们自以为众人皆醉我独醒的时候，也许人人都在忙碌的间隙里晃过这样一个问题：人生的意义是什么。我们不仅仅不特殊，甚至还是一个个重复的人类个体。</p>
-<p>​    以前我很喜欢毕淑敏给出的答案「人生的意义是需要你去赋予的」，但现在我更喜欢加缪所言没有意义的人生反而可以更好过活，「重要的不是治愈，而是带着病痛活下去」。</p>
-<p>​    浪漫派巴罗克风格的一位艺术家，曾经有过高论：「一切精神生活的目的就是成为上帝。」愿我们成为自己生活里的上帝。</p>
-<p>——sspai 猫敏敏</p>
-]]></content>
-      <tags>
-        <tag>别人说的</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2020年度总结</title>
-    <url>/2020/12/25/9/</url>
-    <content><![CDATA[<h2 id="今年"><a href="#今年" class="headerlink" title="今年"></a>今年</h2><p>​    2020对大多数人来说都是不平凡的一年。对我而言，今年的影响不如去年。虽然这一年我没什么的特别的收获，但不能说什么也没有变化。我从今年开始写年度总结，为来年做好规划，为以后的我做参考。</p>
-<h2 id="大事件"><a href="#大事件" class="headerlink" title="大事件"></a>大事件</h2><p>没有关于我的大事件</p>
-<h2 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h2><p>今年的收获主要有：</p>
-<p>（学校课程）</p>
-<p>Java、T-SQL</p>
-<p>数据结构</p>
-<p>汇编语言</p>
-<p>数据库</p>
-<p>数字电路</p>
-<p>（入门自学）</p>
-<p>计算机组成原理</p>
-<p>计算机网络</p>
-<p>博客（学习了一些前端和网络的皮毛）</p>
-<p>树莓派（熟悉Linux，搞了一些小项目）</p>
-<p>Linux Shell</p>
-<p>Git</p>
-<p>GitHub + Twitter（今年在twitter认识了不少同年龄的大佬，在GitHub上找到不少好的开源项目）</p>
-<p>基金和理财（经过两年理财，今年开始买基金）</p>
-<p>哲学（开始对哲学感兴趣）</p>
-<p>汽车（上了高速 跑了市区 过了实习期）</p>
-<h2 id="健康"><a href="#健康" class="headerlink" title="健康"></a>健康</h2><p>​    从去年开始，自己的心理状况就不是很好。但比去年末要好些。</p>
-<p>​    多亏这次疫情，让我在家体重长了不少。</p>
-<p>​    总之，希望来年身心健康。</p>
-<h2 id="日常"><a href="#日常" class="headerlink" title="日常"></a>日常</h2><h3 id="今年的喜爱番剧"><a href="#今年的喜爱番剧" class="headerlink" title="今年的喜爱番剧"></a>今年的喜爱番剧</h3><p>今年对我影响较深的番剧大部分是老番，新番对我的吸引力越来越小。以下无先后顺序：</p>
-<p>齐木楠雄的灾难 始动篇</p>
-<p>花开物语</p>
-<p>吹响吧！上低音号</p>
-<p>比宇宙更远的地方</p>
-<p>摇曳露营</p>
-<p>GJ部</p>
-<p>银之匙</p>
-<p>珈百璃的堕落</p>
-<p>辉夜大小姐想让我告别 第二季</p>
-<p>邪神与厨二病少女 第二季</p>
-<p>紫罗兰永恒花园 外传 —永远与自动手记人偶</p>
-<p>迷糊餐厅</p>
-<p>电波女与青春男</p>
-<p>三月的狮子</p>
-<p>悠哉日常大王</p>
-<p>来玩游戏吧</p>
-<p>女仆咖啡厅</p>
-<p>路人女主的养成方法 第二季 + 电影</p>
-<p>草莓棉花糖</p>
-<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><p>摩登家庭</p>
-<p>top gear总集篇</p>
-<p>月曜夜未央</p>
-<h3 id="今年的喜爱书籍"><a href="#今年的喜爱书籍" class="headerlink" title="今年的喜爱书籍"></a>今年的喜爱书籍</h3><p>《且听风吟》</p>
-<p>《1973年的弹子球》</p>
-<p>《寻羊冒险记》</p>
-<p>《迟来的翅膀》</p>
-<p>还有些编程方面的就不罗列了</p>
-<h3 id="今年的喜爱游戏"><a href="#今年的喜爱游戏" class="headerlink" title="今年的喜爱游戏"></a>今年的喜爱游戏</h3><p>生化奇兵：无限（本体+海葬DLC）</p>
-<p>耻辱</p>
-<p>奇异人生（和生化奇兵、耻辱一样 高中开始玩 现在才通关）</p>
-<p>文明6</p>
-<p>真三国无双7</p>
-<p>守望先锋</p>
-<h3 id="小事件"><a href="#小事件" class="headerlink" title="小事件"></a>小事件</h3><p>第一次打工：去高中的补习班当助教 赚了1k</p>
-<p>参加了两次四级考试</p>
-<p>第一次参加校级比赛</p>
-<p>驾照过了实习期</p>
-<h2 id="来年"><a href="#来年" class="headerlink" title="来年"></a>来年</h2><p>​    今年还算是顺利，没有遇到特别不愉快的事情。以下是我的期望：</p>
-<p>有自己满意的编程能力</p>
-<p>做出自己满意的开源项目</p>
-<p>身心健康</p>
-<p>2021年初我就20岁了，希望20岁的我能离答案更近，能实现自己的目标。</p>
-<p>Colt写于2020年圣诞节</p>
-]]></content>
-      <tags>
-        <tag>年度总结</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>念奴娇·郑铁一中</title>
-    <url>/2020/06/24/7/</url>
-    <content><![CDATA[<p>​                                                                           </p>
-<p>​                                                                      <strong>念奴娇·郑铁一中</strong></p>
-<hr>
-<p>黄河正泻,问河流此水,何年淘净。露冷三更刚挂起,悄见一帆轻影。陇海桥边,茭蒲顷里,玉镜飞寒莹。夕阳无力,碧天推上孤艇。</p>
-<p>遥想当日中兴,人文昌盛,光焰雄吴晋。坐对画图心自醉,把酒临风横咏。禹甸梅开,尧阶草绿,逝者如斯永。埃尘不到,闭门独卧清省。</p>
-<p>——<a href="https://www.aichpoem.com" target="_blank" rel="noopener">诗三百</a></p>
-]]></content>
-      <tags>
-        <tag>别人说的</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>新电脑</title>
-    <url>/2020/07/28/8/</url>
-    <content><![CDATA[<p>​    一周前在推特上看见了一台二手的Surface Laptop，惊讶现在的笔记本已经如此精致。看着我的y410p，下定决心要换电脑。左思右想没有买那台Surface而是定了新出不久的小新Air14，这也是我时隔七年再次用上AMD的CPU。</p>
-<p>​    十几年前我的旧台式机用的是AMD四核速龙，14年买的联想Y410P和15年买的Macmini都是四代i5，那时的我绝对不会想到七年后我会再次用上AMD。Y410P是我平时最常用的。其实是可以坚持四年的，但2.5千克的重量和低分辨率低色域的屏幕实在让我为难，背着y410p去图书馆是件很痛苦的事。</p>
-<p>   小新Air14搭载的AMD锐龙4600U比我原来的i5 4200M要好太多，屏幕也强不少。16G板载双通道内存和512G 三星pm981a SSD也足够我用。与y410p不同的是，air14没有独显。其实无所谓，在此方面我并没有太高的需求。作为轻薄本，小新air14只有1.4千克。但键盘手感不如Y410P，毕竟是厚度小，键程也比较短。<br><img src="https://s1.ax1x.com/2020/07/28/aEvAxJ.png" alt="cpu" style="zoom: 50%;" /><img src="https://s1.ax1x.com/2020/07/28/aEvk24.png" alt="cpu2" style="zoom:50%;" /></p>
-<p>   总而言之，air14很适合我。也希望air14能用个六七年，我实在不想在电子产品上下太多功夫。</p>
-]]></content>
-      <tags>
-        <tag>自言自语</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Git</title>
     <url>/2020/04/29/4/</url>
     <content><![CDATA[<p><strong>用hexo在github上部署博客，自然少不了git的使用，以下是我学习git的过程。</strong></p>
@@ -287,6 +124,128 @@
       </tags>
   </entry>
   <entry>
+    <title>存在的意义</title>
+    <url>/2020/05/12/5/</url>
+    <content><![CDATA[<p>​    几年前的奇葩说里面，我非常喜欢刘可乐进场时的那段话，她自述有双相情感障碍，找过很多心理医生，同时也很想去想明白人生的意义到底在哪里。</p>
+<p>​    直到有一天，有人问她：意义的意义又是什么呢？乍听起来是很绕，但是一瞬间就解开了所有问题，是啊，当我们自以为脱离了庸俗，去思考哲学的终极问题时，想要去找到人生意义的答案，这种行为本身就是没有意义的。</p>
+<p>​    当我们自以为众人皆醉我独醒的时候，也许人人都在忙碌的间隙里晃过这样一个问题：人生的意义是什么。我们不仅仅不特殊，甚至还是一个个重复的人类个体。</p>
+<p>​    以前我很喜欢毕淑敏给出的答案「人生的意义是需要你去赋予的」，但现在我更喜欢加缪所言没有意义的人生反而可以更好过活，「重要的不是治愈，而是带着病痛活下去」。</p>
+<p>​    浪漫派巴罗克风格的一位艺术家，曾经有过高论：「一切精神生活的目的就是成为上帝。」愿我们成为自己生活里的上帝。</p>
+<p>——sspai 猫敏敏</p>
+]]></content>
+      <tags>
+        <tag>别人说的</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>新电脑</title>
+    <url>/2020/07/28/8/</url>
+    <content><![CDATA[<p>​    一周前在推特上看见了一台二手的Surface Laptop，惊讶现在的笔记本已经如此精致。看着我的y410p，下定决心要换电脑。左思右想没有买那台Surface而是定了新出不久的小新Air14，这也是我时隔七年再次用上AMD的CPU。</p>
+<p>​    十几年前我的旧台式机用的是AMD四核速龙，14年买的联想Y410P和15年买的Macmini都是四代i5，那时的我绝对不会想到七年后我会再次用上AMD。Y410P是我平时最常用的。其实是可以坚持四年的，但2.5千克的重量和低分辨率低色域的屏幕实在让我为难，背着y410p去图书馆是件很痛苦的事。</p>
+<p>   小新Air14搭载的AMD锐龙4600U比我原来的i5 4200M要好太多，屏幕也强不少。16G板载双通道内存和512G 三星pm981a SSD也足够我用。与y410p不同的是，air14没有独显。其实无所谓，在此方面我并没有太高的需求。作为轻薄本，小新air14只有1.4千克。但键盘手感不如Y410P，毕竟是厚度小，键程也比较短。<br><img src="https://s1.ax1x.com/2020/07/28/aEvAxJ.png" alt="cpu" style="zoom: 50%;" /><img src="https://s1.ax1x.com/2020/07/28/aEvk24.png" alt="cpu2" style="zoom:50%;" /></p>
+<p>   总而言之，air14很适合我。也希望air14能用个六七年，我实在不想在电子产品上下太多功夫。</p>
+]]></content>
+      <tags>
+        <tag>自言自语</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>更换DNS解析与CDN</title>
+    <url>/2020/04/24/2/</url>
+    <content><![CDATA[<p><strong>注册域名时使用了阿里云的DNS解析，现更换CloudFlare DNS并使用CDN。</strong></p>
+<ol>
+<li><p>将原DNS dns21.hichina.com dns22.hichina.com更换为harlee.ns.cloudflare.com weston.ns.cloudflare.com。</p>
+</li>
+<li><p>停止阿里云解析，开启CloudFlare，勾选CDN。</p>
+</li>
+<li><p>开启Under Attack 模式，打开网页后出现五秒盾。</p>
+</li>
+<li><p>进行SSL设置</p>
+</li>
+</ol>
+<p>现在网站已有SSL证书，并由CloudFlare保护防止DDoS ，管不管用就不知道了。</p>
+<p><img src="https://s1.ax1x.com/2020/04/24/JDe0vF.png" alt="证书"></p>
+]]></content>
+      <tags>
+        <tag>CS沉思</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2020年度总结</title>
+    <url>/2020/12/25/9/</url>
+    <content><![CDATA[<h2 id="今年"><a href="#今年" class="headerlink" title="今年"></a>今年</h2><p>​    2020对大多数人来说都是不平凡的一年。对我而言，今年的影响不如去年。虽然这一年我没什么的特别的收获，但不能说什么也没有变化。我从今年开始写年度总结，为来年做好规划，为以后的我做参考。</p>
+<h2 id="大事件"><a href="#大事件" class="headerlink" title="大事件"></a>大事件</h2><p>没有关于我的大事件</p>
+<h2 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h2><p>今年的收获主要有：</p>
+<p>（学校课程）</p>
+<p>Java、T-SQL</p>
+<p>数据结构</p>
+<p>汇编语言</p>
+<p>数据库</p>
+<p>数字电路</p>
+<p>（入门自学）</p>
+<p>计算机组成原理</p>
+<p>计算机网络</p>
+<p>博客（学习了一些前端和网络的皮毛）</p>
+<p>树莓派（熟悉Linux，搞了一些小项目）</p>
+<p>Linux Shell</p>
+<p>Git</p>
+<p>GitHub + Twitter（今年在twitter认识了不少同年龄的大佬，在GitHub上找到不少好的开源项目）</p>
+<p>基金和理财（经过两年理财，今年开始买基金）</p>
+<p>哲学（开始对哲学感兴趣）</p>
+<p>汽车（上了高速 跑了市区 过了实习期）</p>
+<h2 id="健康"><a href="#健康" class="headerlink" title="健康"></a>健康</h2><p>​    从去年开始，自己的心理状况就不是很好。但比去年末要好些。</p>
+<p>​    多亏这次疫情，让我在家体重长了不少。</p>
+<p>​    总之，希望来年身心健康。</p>
+<h2 id="日常"><a href="#日常" class="headerlink" title="日常"></a>日常</h2><h3 id="今年的喜爱番剧"><a href="#今年的喜爱番剧" class="headerlink" title="今年的喜爱番剧"></a>今年的喜爱番剧</h3><p>今年对我影响较深的番剧大部分是老番，新番对我的吸引力越来越小。以下无先后顺序：</p>
+<p>齐木楠雄的灾难 始动篇</p>
+<p>花开物语</p>
+<p>吹响吧！上低音号</p>
+<p>比宇宙更远的地方</p>
+<p>摇曳露营</p>
+<p>GJ部</p>
+<p>银之匙</p>
+<p>珈百璃的堕落</p>
+<p>辉夜大小姐想让我告别 第二季</p>
+<p>邪神与厨二病少女 第二季</p>
+<p>紫罗兰永恒花园 外传 —永远与自动手记人偶</p>
+<p>迷糊餐厅</p>
+<p>电波女与青春男</p>
+<p>三月的狮子</p>
+<p>悠哉日常大王</p>
+<p>来玩游戏吧</p>
+<p>女仆咖啡厅</p>
+<p>路人女主的养成方法 第二季 + 电影</p>
+<p>草莓棉花糖</p>
+<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><p>摩登家庭</p>
+<p>top gear总集篇</p>
+<p>月曜夜未央</p>
+<h3 id="今年的喜爱书籍"><a href="#今年的喜爱书籍" class="headerlink" title="今年的喜爱书籍"></a>今年的喜爱书籍</h3><p>《且听风吟》</p>
+<p>《1973年的弹子球》</p>
+<p>《寻羊冒险记》</p>
+<p>《迟来的翅膀》</p>
+<p>还有些编程方面的就不罗列了</p>
+<h3 id="今年的喜爱游戏"><a href="#今年的喜爱游戏" class="headerlink" title="今年的喜爱游戏"></a>今年的喜爱游戏</h3><p>生化奇兵：无限（本体+海葬DLC）</p>
+<p>耻辱</p>
+<p>奇异人生（和生化奇兵、耻辱一样 高中开始玩 现在才通关）</p>
+<p>文明6</p>
+<p>真三国无双7</p>
+<p>守望先锋</p>
+<h3 id="小事件"><a href="#小事件" class="headerlink" title="小事件"></a>小事件</h3><p>第一次打工：去高中的补习班当助教 赚了1k</p>
+<p>参加了两次四级考试</p>
+<p>第一次参加校级比赛</p>
+<p>驾照过了实习期</p>
+<h2 id="来年"><a href="#来年" class="headerlink" title="来年"></a>来年</h2><p>​    今年还算是顺利，没有遇到特别不愉快的事情。以下是我的期望：</p>
+<p>有自己满意的编程能力</p>
+<p>做出自己满意的开源项目</p>
+<p>身心健康</p>
+<p>2021年初我就20岁了，希望20岁的我能离答案更近，能实现自己的目标。</p>
+<p>Colt写于2020年圣诞节</p>
+]]></content>
+      <tags>
+        <tag>年度总结</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>树莓派clash</title>
     <url>/2020/05/23/6/</url>
     <content><![CDATA[<h1 id="Clash在树莓派上的实现"><a href="#Clash在树莓派上的实现" class="headerlink" title="Clash在树莓派上的实现"></a>Clash在树莓派上的实现</h1><p>树莓派吃灰已久，原来做过小型服务器和下载机。这次尝试在树莓派上部署Clash。</p>
@@ -314,6 +273,47 @@
 ]]></content>
       <tags>
         <tag>CS沉思</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>评论系统</title>
+    <url>/2020/04/25/3/</url>
+    <content><![CDATA[<p><strong>现在为博客添加评论</strong></p>
+<p>Next主题</p>
+<p>这里使用valine，基于leancloud，比较稳定。</p>
+<p>在<a href="https://leancloud.cn/" target="_blank" rel="noopener">leancloud</a>创建账户并创建开发板。在存储中创建名为Comment、Counter的两个Class，权限为所有用户可以访问。<img src="https://s1.ax1x.com/2020/04/25/Jsm9IA.png" alt="valine"></p>
+<p>在设置 安全中心中将服务开关除数据存储外全部关闭，Web安全域名中添加自己的域名。</p>
+<p><img src="https://s1.ax1x.com/2020/04/25/JsniTJ.png" alt="安全"></p>
+<p>在设置 应用Keys中找到appid与appkey并复制</p>
+<p>在主题的_config.yml文件中找到valine（612行）粘贴自己的appid与appkey。</p>
+<p><strong>注意将enable设置为true。</strong></p>
+<p><img src="https://s1.ax1x.com/2020/04/25/JsngXT.png" alt="配置"></p>
+<p>接下来更换valine CDN</p>
+<p>在<a href="https://www.jsdelivr.com/package/npm/valine" target="_blank" rel="noopener">jsdelivr</a>中找到最新CDN copy URL</p>
+<p><img src="https://s1.ax1x.com/2020/04/25/Jsn4AJ.png" alt="cdn"></p>
+<p>在主题_config.yml文件中找到valine CDN（945行）粘贴</p>
+<p><img src="https://s1.ax1x.com/2020/04/25/Jsnz4A.png" alt="cdn1"></p>
+<p>保存 git后出现评论 test成功</p>
+<p><img src="https://s1.ax1x.com/2020/04/25/JsuZNj.png" alt="实现"></p>
+<p>评论后leancloud中会在Comment中生成数据，可以进行管理。</p>
+<p><img src="https://s1.ax1x.com/2020/04/25/JsusVe.png" alt="管理"></p>
+]]></content>
+      <tags>
+        <tag>CS沉思</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>念奴娇·郑铁一中</title>
+    <url>/2020/06/24/7/</url>
+    <content><![CDATA[<p>​                                                                           </p>
+<p>​                                                                      <strong>念奴娇·郑铁一中</strong></p>
+<hr>
+<p>黄河正泻,问河流此水,何年淘净。露冷三更刚挂起,悄见一帆轻影。陇海桥边,茭蒲顷里,玉镜飞寒莹。夕阳无力,碧天推上孤艇。</p>
+<p>遥想当日中兴,人文昌盛,光焰雄吴晋。坐对画图心自醉,把酒临风横咏。禹甸梅开,尧阶草绿,逝者如斯永。埃尘不到,闭门独卧清省。</p>
+<p>——<a href="https://www.aichpoem.com" target="_blank" rel="noopener">诗三百</a></p>
+]]></content>
+      <tags>
+        <tag>别人说的</tag>
       </tags>
   </entry>
 </search>
